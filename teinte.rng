@@ -1037,6 +1037,8 @@
             <ref name="foreign"/>
             <ref name="stage"/>
             <ref name="term"/>
+            <ref name="author"/>
+            <ref name="title"/>
           </choice>
         </zeroOrMore>
         <optional>
