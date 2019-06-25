@@ -1612,12 +1612,12 @@
               <text/>
             </choice>
           </attribute>
-          <attribute name="extent"/>
         </optional>
         <optional>
           <ref name="xml.lang"/>
         </optional>
         <optional>
+          <attribute name="extent"/>
           <attribute name="quantity"/>
           <attribute name="unit">
             <choice>
