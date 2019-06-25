@@ -1608,6 +1608,7 @@
               <value>omitted</value>
               <value>illisible</value>
               <value>hors projet</value>
+              <value>numerisation</value>
               <text/>
             </choice>
           </attribute>
@@ -1627,6 +1628,8 @@
               <a:documentation>millimètres</a:documentation>
               <value>cm</value>
               <a:documentation>centimètres</a:documentation>
+              <value>pages</value>
+              <a:documentation>pages</a:documentation>
             </choice>
           </attribute>
         </optional>
