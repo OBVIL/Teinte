@@ -1685,6 +1685,7 @@
                   <value>in</value>
                   <value>lines</value>
                   <value>chars</value>
+                  <value>pages</value>
                 </choice>
               </attribute>
               <attribute name="quantity">
