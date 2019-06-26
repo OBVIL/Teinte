@@ -1617,7 +1617,6 @@
           <ref name="xml.lang"/>
         </optional>
         <optional>
-          <attribute name="extent"/>
           <attribute name="quantity"/>
           <attribute name="unit">
             <choice>
@@ -1629,6 +1628,8 @@
               <a:documentation>millimètres</a:documentation>
               <value>cm</value>
               <a:documentation>centimètres</a:documentation>
+              <value>pages</value>
+              <a:documentation>pages</a:documentation>
             </choice>
           </attribute>
         </optional>
@@ -1684,6 +1685,7 @@
                   <value>in</value>
                   <value>lines</value>
                   <value>chars</value>
+                  <value>pages</value>
                 </choice>
               </attribute>
               <attribute name="quantity">
