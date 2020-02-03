@@ -2267,6 +2267,7 @@
             <ref name="num"/>
             <ref name="point"/>
             <ref name="title"/>
+            <ref name="figure"/>
           </choice>
         </zeroOrMore>
       </element>
