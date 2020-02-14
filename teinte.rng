@@ -1039,6 +1039,7 @@
             <ref name="term"/>
             <ref name="author"/>
             <ref name="title"/>
+            <ref name="persName"/>
           </choice>
         </zeroOrMore>
         <optional>
