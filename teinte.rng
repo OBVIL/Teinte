@@ -1232,6 +1232,7 @@
               <ref name="sp.quote"/>
               <ref name="stage"/>
               <ref name="table"/>
+              <ref name="ref"/>
             </choice>
           </oneOrMore>
         </choice>
