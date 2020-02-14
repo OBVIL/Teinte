@@ -567,6 +567,9 @@
           <optional>
             <ref name="teiHeader.hi"/>
           </optional>
+          <optional>
+            <ref name="teiHeader.num"/>
+          </optional>
         </interleave>
       </element>
     </define>
