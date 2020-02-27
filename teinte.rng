@@ -2,13 +2,34 @@
 <!--
 <?xml-stylesheet type="text/xsl" href="../xrem/rng2html.xsl"?>
 -->
-<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes" ns="http://www.tei-c.org/ns/1.0" xml:lang="fr" xmlns="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  ns="http://www.tei-c.org/ns/1.0" xml:lang="fr" xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:h="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <a:documentation>Teinte, TEI pour les livres</a:documentation>
   <div xmlns="http://www.w3.org/1999/xhtml">
     <ul class="auteurs">
-      <li>[FG] <a href="#" onmouseover="this.href='mailto'+'\x3A'+'glorieux'+'\x40'+'fictif.org'">Frédéric Glorieux</a> (2013-…) création initiale et structuration</li>
+      <li>[FG] <a href="#" onmouseover="this.href='mailto'+'\x3A'+'glorieux'+'\x40'+'fictif.org'"
+          >Frédéric Glorieux</a> (2013-…) création initiale et structuration</li>
     </ul>
-    <p>Ce <a href="teinte.rng">schéma</a> est une restriction de la recommandation <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html">TEI P5</a> adaptée à la structuration de livres imprimés. Cette simplification est un socle qui n'interdit pas les extensions mais au contraire précise le générique pour mieux repérer le spécifique. Ce profil TEI peut être comparé aux recommandations <a href="http://www.tei-c.org/Vault/P5//2.3.0/doc/tei-p5-exemplars/html/tei_tite.doc.html">TEI Tite</a> et <a href="http://www.tei-c.org/SIG/Libraries/teiinlibraries/main-driver.html">Best Practices for TEI in Libraries</a>, conçues pour faire référence dans les projets de numérisation de masse. Ce profil profite de l'expérience acquise et la perfectionne en insistant sur quelques autres aspects : explications en français, exemples tirés de la tradition éditoriale francophone, numérisation avec un logiciel d’OCR par du personnel non entraîné, utilisation du traitement de textes. Ce profil a été conçu en référence continuelle à <a href="http://www.w3.org/TR/html5/">HTML 5</a>, afin d'au moins garantir la conservation de la sémantique html en TEI. Il permet d'encoder tout ce que peut produire un traitement de textes, notamment issu de la transformation <a href="https://github.com/oeuvres/Odette">Odette</a>. Il vise à produire au moins une édition électronique de qualité (ePub avec table des matières, site en ligne), tout en permettant des enrichissements sémantiques ultérieurs. </p>
+    <p>Ce <a href="teinte.rng">schéma</a> est une restriction de la recommandation <a
+        href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html">TEI P5</a>
+      adaptée à la structuration de livres imprimés. Cette simplification est un socle qui
+      n'interdit pas les extensions mais au contraire précise le générique pour mieux repérer le
+      spécifique. Ce profil TEI peut être comparé aux recommandations <a
+        href="http://www.tei-c.org/Vault/P5//2.3.0/doc/tei-p5-exemplars/html/tei_tite.doc.html">TEI
+        Tite</a> et <a href="http://www.tei-c.org/SIG/Libraries/teiinlibraries/main-driver.html"
+        >Best Practices for TEI in Libraries</a>, conçues pour faire référence dans les projets de
+      numérisation de masse. Ce profil profite de l'expérience acquise et la perfectionne en
+      insistant sur quelques autres aspects : explications en français, exemples tirés de la
+      tradition éditoriale francophone, numérisation avec un logiciel d’OCR par du personnel non
+      entraîné, utilisation du traitement de textes. Ce profil a été conçu en référence continuelle
+      à <a href="http://www.w3.org/TR/html5/">HTML 5</a>, afin d'au moins garantir la conservation
+      de la sémantique html en TEI. Il permet d'encoder tout ce que peut produire un traitement de
+      textes, notamment issu de la transformation <a href="https://github.com/oeuvres/Odette"
+        >Odette</a>. Il vise à produire au moins une édition électronique de qualité (ePub avec
+      table des matières, site en ligne), tout en permettant des enrichissements sémantiques
+      ultérieurs. </p>
     <p>Plan de ce document</p>
     <ul>
       <li>
@@ -50,13 +71,24 @@
         <a:documentation>Structure générale d’un document TEI</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
           <ul>
-            <li>L’entête TEI <a:el>teiHeader</a:el> : non destiné à être affiché, il contient les métadonnées.</li>
-            <li>Le texte préliminaire <a:el>front</a:el> : préface, introduction… Si l’édition source comprend plusieurs types de numérotation des pages, cette partie aura plutôt le numéro en chiffres romaina tandis que le body sera numéroté en décimal.</li>
-            <li>Le texte principal <a:el>body</a:el> : chapitre du livre, source éditée, articles de colloque, etc.</li>
+            <li>L’entête TEI <a:el>teiHeader</a:el> : non destiné à être affiché, il contient les
+              métadonnées.</li>
+            <li>Le texte préliminaire <a:el>front</a:el> : préface, introduction… Si l’édition
+              source comprend plusieurs types de numérotation des pages, cette partie aura plutôt le
+              numéro en chiffres romaina tandis que le body sera numéroté en décimal.</li>
+            <li>Le texte principal <a:el>body</a:el> : chapitre du livre, source éditée, articles de
+              colloque, etc.</li>
             <li>Le texte postliminaire <a:el>back</a:el> : annexes, bibliographie, index, etc.</li>
           </ul>
-          <p>Le <a:el>body</a:el> peut parfois contenir du paratexte éditorial (préliminaire <a:el>front</a:el> ou postliminaire <a:el>back</a:el>) dans le cas d’une édition de source historique comportant du paratexte d'époque qui sera lui-même commenté et annoté par un éditeur.</p>
-          <p>Le document comportera toujours un <a href="http://www.loc.gov/standards/iso639-2/php/French_list.php" target="_blank">code de langue iso</a> dans l’attribut <a:att>xml:lang</a:att> en racine, on privilégiera le code deux lettres lorsque possible (mieux supporté dans la chaîne éditoriale, par ex. epub).</p>
+          <p>Le <a:el>body</a:el> peut parfois contenir du paratexte éditorial (préliminaire
+              <a:el>front</a:el> ou postliminaire <a:el>back</a:el>) dans le cas d’une édition de
+            source historique comportant du paratexte d'époque qui sera lui-même commenté et annoté
+            par un éditeur.</p>
+          <p>Le document comportera toujours un <a
+              href="http://www.loc.gov/standards/iso639-2/php/French_list.php" target="_blank">code
+              de langue iso</a> dans l’attribut <a:att>xml:lang</a:att> en racine, on privilégiera
+            le code deux lettres lorsque possible (mieux supporté dans la chaîne éditoriale, par ex.
+            epub).</p>
           <a:example>
             <TEI xml:lang="fr">
               <teiHeader>…</teiHeader>
@@ -64,7 +96,8 @@
                 <front>
                   <titlePage>page de titre</titlePage>
                   <argument>quatrième de couverture</argument>
-                  <div type="preface">tout paratexte autre que le corps du texte, souvent numéroté en chiffres romain</div>
+                  <div type="preface">tout paratexte autre que le corps du texte, souvent numéroté
+                    en chiffres romain</div>
                 </front>
                 <body>
                   <head>Corps du livre</head>
@@ -117,6 +150,12 @@
           <optional>
             <ref name="front"/>
           </optional>
+          <optional>
+            <attribute name="decls"/>
+          </optional>
+          <optional>
+            <attribute name="type"/>
+          </optional>
           <choice>
             <ref name="body"/>
             <ref name="group"/>
@@ -159,7 +198,10 @@
       <element name="front">
         <a:documentation>Le texte préliminaire tel qu’imprimé</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Chaque section (introduction, préface, etc.) est contenue dans un <a:el>div</a:el>. <br/>Si l’édition contient plusieurs types de numérotations des pages (romain, arabe), alors le <a:el>front</a:el> doit contenir une numérotation homogène (usuellement en chiffres romains). </p>
+          <p>Chaque section (introduction, préface, etc.) est contenue dans un <a:el>div</a:el>.
+            <br/>Si l’édition contient plusieurs types de numérotations des pages (romain, arabe),
+            alors le <a:el>front</a:el> doit contenir une numérotation homogène (usuellement en
+            chiffres romains). </p>
           <a:example>
             <front>
               <titlePage>Obligatoire</titlePage>
@@ -193,7 +235,14 @@
       <element name="titlePage">
         <a:documentation>Page de titre</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Le texte de la page de titre doit être transcrit. <br/>La disposition est imitée avec des éléments de type bloc. Leur positionnement exact n'est pas requis. <br/>L'interprétation sémantique (auteur, titre, date, imprimeur…) n’est pas requise, les métadonnées doivent plutôt être inscrites dans le <a:el>teiHeader</a:el>. <br/>Si la page de titre est riche d’informations utiles, il est vain de vouloir l’imiter dans un XML qui ne conserve que l’information et n’engage pas la présentation que peuvent en faire les applications, on conseillera plutôt d’en conserver l’image, à lier par la référence de la page <a:el>pb facs="??"</a:el>. </p>
+          <p>Le texte de la page de titre doit être transcrit. <br/>La disposition est imitée avec
+            des éléments de type bloc. Leur positionnement exact n'est pas requis.
+            <br/>L'interprétation sémantique (auteur, titre, date, imprimeur…) n’est pas requise,
+            les métadonnées doivent plutôt être inscrites dans le <a:el>teiHeader</a:el>. <br/>Si la
+            page de titre est riche d’informations utiles, il est vain de vouloir l’imiter dans un
+            XML qui ne conserve que l’information et n’engage pas la présentation que peuvent en
+            faire les applications, on conseillera plutôt d’en conserver l’image, à lier par la
+            référence de la page <a:el>pb facs="??"</a:el>. </p>
           <a:example href="teibook.xml#titlePage"/>
         </div>
         <optional>
@@ -214,12 +263,14 @@
               </oneOrMore>
             </element>
             <element name="docEdition">
-              <a:documentation>Mention d’édition telle qu’elle figure sur la page de titre</a:documentation>
+              <a:documentation>Mention d’édition telle qu’elle figure sur la page de
+                titre</a:documentation>
               <ref name="rendering.block"/>
               <ref name="flow"/>
             </element>
             <element name="docImprint">
-              <a:documentation>Mention d'impression de l'éditeur (lieu et date de publication, nom de l’éditeur) telle qu’elle figure sur la page de titre</a:documentation>
+              <a:documentation>Mention d'impression de l'éditeur (lieu et date de publication, nom
+                de l’éditeur) telle qu’elle figure sur la page de titre</a:documentation>
               <ref name="rendering.block"/>
               <ref name="flow"/>
             </element>
@@ -256,9 +307,14 @@
     </define>
     <define name="back">
       <element name="back">
-        <a:documentation>Éléments en fin de livre : index, sommaires, glossaires, etc.</a:documentation>
+        <a:documentation>Éléments en fin de livre : index, sommaires, glossaires,
+          etc.</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p> Si le projet éditorial ou scientifique requiert de conserver une table des matières imprimée, elle sera encodée comme une liste <a:el>list</a:el> (structure hiérarchique récursive), conformément aux conseils de la TEI. Un n° de page sera indiqué comme un lien renvoyant à l’identifiant du saut de page dans le texte <a:el>pb n="305" xml:id="pb305"</a:el>.</p>
+          <p> Si le projet éditorial ou scientifique requiert de conserver une table des matières
+            imprimée, elle sera encodée comme une liste <a:el>list</a:el> (structure hiérarchique
+            récursive), conformément aux conseils de la TEI. Un n° de page sera indiqué comme un
+            lien renvoyant à l’identifiant du saut de page dans le texte <a:el>pb n="305"
+              xml:id="pb305"</a:el>.</p>
           <a:example href="teibook.xml#toc"/>
         </div>
         <ref name="xml-atts"/>
@@ -318,19 +374,25 @@
             <value>appendix</value>
             <a:documentation>Appendice, paratexte, généralement en &lt;back></a:documentation>
             <value>argument</value>
-            <a:documentation>Argument, paratexte, généralement en entête, parfois entre deux actes</a:documentation>
+            <a:documentation>Argument, paratexte, généralement en entête, parfois entre deux
+              actes</a:documentation>
             <value>article</value>
-            <a:documentation>Article, niveau de référence du découpage du texte. Peut être contenu dans une structuration supérieure (partie, livre…), ou contenir d'autres divisions (sections…). Ce terme ne doit pas être utilisé pour un niveau inférieur ou supérieur à la division de référence d'un texte.</a:documentation>
+            <a:documentation>Article, niveau de référence du découpage du texte. Peut être contenu
+              dans une structuration supérieure (partie, livre…), ou contenir d'autres divisions
+              (sections…). Ce terme ne doit pas être utilisé pour un niveau inférieur ou supérieur à
+              la division de référence d'un texte.</a:documentation>
             <value>book</value>
             <a:documentation>Division de haut niveau dans un gros texte</a:documentation>
             <value>bibliography</value>
             <a:documentation>Bibliographie, paratexte, généralement en &lt;back></a:documentation>
             <value>chapter</value>
-            <a:documentation>Chapitre, niveau de référence équivalent à “article”, souvent la seule dans un roman.</a:documentation>
+            <a:documentation>Chapitre, niveau de référence équivalent à “article”, souvent la seule
+              dans un roman.</a:documentation>
             <value>colophon</value>
             <a:documentation>Colophon, paratexte, généralement en &lt;back></a:documentation>
             <value>contents</value>
-            <a:documentation>Table des matières, paratexte en &lt;front> ou en &lt;back></a:documentation>
+            <a:documentation>Table des matières, paratexte en &lt;front> ou en
+              &lt;back></a:documentation>
             <value>dedication</value>
             <a:documentation>Dédicace, paratexte généralement en &lt;front></a:documentation>
             <value>epigraph</value>
@@ -342,13 +404,15 @@
             <value>index</value>
             <a:documentation>Index, paratexte, généralement en &lt;back></a:documentation>
             <value>interlude</value>
-            <a:documentation>Dans une pièce de théâtre, intermède, par example dansé ou musical, le texte y a un statut différent des actes pleins.</a:documentation>
+            <a:documentation>Dans une pièce de théâtre, intermède, par example dansé ou musical, le
+              texte y a un statut différent des actes pleins.</a:documentation>
             <value>introduction</value>
             <a:documentation>Introduction, paratexte, généralement en &lt;front></a:documentation>
             <value>letter</value>
             <a:documentation>Lettre.</a:documentation>
             <value>notes</value>
-            <a:documentation>Notes de fin de volume, paratexte, généralement en &lt;back></a:documentation>
+            <a:documentation>Notes de fin de volume, paratexte, généralement en
+              &lt;back></a:documentation>
             <value>poem</value>
             <a:documentation>Un poème</a:documentation>
             <value>postface</value>
@@ -358,7 +422,9 @@
             <value>privilege</value>
             <a:documentation>Privilège d’imprimer, paratexte</a:documentation>
             <value>prologue</value>
-            <a:documentation>Prologue, par exemple dans une pièce de théâtre, préférer une division typée à l’élément prologue de la TEI qui n’est autorisé que dans l’avant-texte <a:el>front</a:el>.</a:documentation>
+            <a:documentation>Prologue, par exemple dans une pièce de théâtre, préférer une division
+              typée à l’élément prologue de la TEI qui n’est autorisé que dans l’avant-texte
+                <a:el>front</a:el>.</a:documentation>
             <value>scene</value>
             <a:documentation>Théâtre, scène.</a:documentation>
             <value>section</value>
@@ -366,7 +432,8 @@
             <value>set</value>
             <a:documentation>Théâtre, pages liminaires.</a:documentation>
             <value>toc</value>
-            <a:documentation>Table des matières, synonyme de “contents”, paratexte en &lt;front> ou en &lt;back></a:documentation>
+            <a:documentation>Table des matières, synonyme de “contents”, paratexte en &lt;front> ou
+              en &lt;back></a:documentation>
             <value>tome</value>
             <a:documentation>Tome, dans certaines grosses tables des matières</a:documentation>
             <!--
@@ -398,8 +465,18 @@
       <element name="div">
         <a:documentation>Sections du texte, &lt;html5:section>, &lt;html5:article> </a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Le texte est un arbre de sections (<a:el>div</a:el>) hiérarchiques. La hiérarchie est récursive. Il y a cependant un niveau privilégié, le chapitre ou l’article, qui correspond à l’unité documentaire référencée par la table des matières, ou au juste découpage pour l’écran. Cette unité peut être contenue dans d’autres hiérarchies (livres, tomes, volumes…), ou contenir elle-même de la hiérarchie (parties, sections, sous-sections…). L’unité documentaire sera marqué par un attribut <a:att>type</a:att> avec la valeur “article” (qui correspond à la terminologie html5:article <a href="http://www.w3.org/TR/html5/the-article-element.html#the-article-element">[spec]</a>). Cette marque est indispensable pour générer automatiquement une table des matières et découper un livre en différentes pages ou fichiers.</p>
-          <p>Une section doit principalement contenir soit des <a href="#block">blocs</a>, soit des sections (<a:el>div</a:el>).</p>
+          <p>Le texte est un arbre de sections (<a:el>div</a:el>) hiérarchiques. La hiérarchie est
+            récursive. Il y a cependant un niveau privilégié, le chapitre ou l’article, qui
+            correspond à l’unité documentaire référencée par la table des matières, ou au juste
+            découpage pour l’écran. Cette unité peut être contenue dans d’autres hiérarchies
+            (livres, tomes, volumes…), ou contenir elle-même de la hiérarchie (parties, sections,
+            sous-sections…). L’unité documentaire sera marqué par un attribut <a:att>type</a:att>
+            avec la valeur “article” (qui correspond à la terminologie html5:article <a
+              href="http://www.w3.org/TR/html5/the-article-element.html#the-article-element"
+              >[spec]</a>). Cette marque est indispensable pour générer automatiquement une table
+            des matières et découper un livre en différentes pages ou fichiers.</p>
+          <p>Une section doit principalement contenir soit des <a href="#block">blocs</a>, soit des
+            sections (<a:el>div</a:el>).</p>
           <a:example>
             <!-- Une interprétation éditoriale de la Bible où un livre est considéré comme l’unité documentaire référencée par la table des matières -->
             <TEI xmlns="http://www.tei-c.org/ns/1.0">
@@ -580,7 +657,8 @@
     </define>
     <define name="byline">
       <element name="byline">
-        <a:documentation>Mention de responsabilité (dans un article de presse, une lettre…). On souhaitera y voir </a:documentation>
+        <a:documentation>Mention de responsabilité (dans un article de presse, une lettre…). On
+          souhaitera y voir </a:documentation>
         <zeroOrMore>
           <choice>
             <text/>
@@ -608,7 +686,8 @@
     </define>
     <define name="dateline">
       <element name="dateline">
-        <a:documentation>Mention de date, de temps ou de lieu, ex : donné le … à … ("datum", dans une lettre, une charte…)</a:documentation>
+        <a:documentation>Mention de date, de temps ou de lieu, ex : donné le … à … ("datum", dans
+          une lettre, une charte…)</a:documentation>
         <ref name="rendering.block"/>
         <interleave>
           <text/>
@@ -641,8 +720,10 @@
         <a:documentation>Épigraphe, citation en exergue de section</a:documentation>
         <a:example>
           <epigraph>
-            <l>Quand tu diras à Tabaqui<note n="9" place="bottom">Le Chacal.</note> : Frère, à l’Hyène : <lb/>Voici mon gibier,</l>
-            <l>Tu feras ta trêve avec Jacala<note n="10" place="bottom">Crocodile de rivière, habituellement charognard.</note>, le Ventre qui court <lb/>sur quatre pieds.</l>
+            <l>Quand tu diras à Tabaqui<note n="9" place="bottom">Le Chacal.</note> : Frère, à
+              l’Hyène : <lb/>Voici mon gibier,</l>
+            <l>Tu feras ta trêve avec Jacala<note n="10" place="bottom">Crocodile de rivière,
+                habituellement charognard.</note>, le Ventre qui court <lb/>sur quatre pieds.</l>
             <bibl>Loi de Jungle.</bibl>
           </epigraph>
         </a:example>
@@ -663,10 +744,17 @@
     </define>
     <define name="head">
       <element name="head">
-        <a:documentation>Titre, niveau déterminé par le contexte hiérarchique, html5 : h1, h2, h3, h4, h5, h6</a:documentation>
+        <a:documentation>Titre, niveau déterminé par le contexte hiérarchique, html5 : h1, h2, h3,
+          h4, h5, h6</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Pour la génération automatique d’interfaces de navigation telle qu’une table des matières, il est nécessaire de disposer des titres expurgés de leur numérotation (afin d’éviter la redondance entre la numérotation inscrite en dur et la numérotation générée). À cette fin, il convient d’encoder cette numérotation avec la balise <a:el>num</a:el>. Ex. : <a:example><head><num>III. — </num>La transmission des témoignages</head></a:example></p>
-          <p>L'attribut @xml:id est volontairement non autorisé à ce niveau pour encourager l'identification de la section enveloppante.</p>
+          <p>Pour la génération automatique d’interfaces de navigation telle qu’une table des
+            matières, il est nécessaire de disposer des titres expurgés de leur numérotation (afin
+            d’éviter la redondance entre la numérotation inscrite en dur et la numérotation
+            générée). À cette fin, il convient d’encoder cette numérotation avec la balise
+              <a:el>num</a:el>. Ex. : <a:example><head><num>III. — </num>La transmission des
+                témoignages</head></a:example></p>
+          <p>L'attribut @xml:id est volontairement non autorisé à ce niveau pour encourager
+            l'identification de la section enveloppante.</p>
         </div>
         <optional>
           <ref name="xml.lang"/>
@@ -722,7 +810,8 @@
     </define>
     <define name="postscript">
       <element name="postscript">
-        <a:documentation>Post-scriptum, dans une lettre, ou plus généralement, en fin de section</a:documentation>
+        <a:documentation>Post-scriptum, dans une lettre, ou plus généralement, en fin de
+          section</a:documentation>
         <ref name="xml-atts"/>
         <ref name="rendering.figure"/>
         <oneOrMore>
@@ -792,7 +881,8 @@
       </choice>
     </define>
     <define name="flow">
-      <a:documentation>Contenu de type paragraphe : tous les éléments de niveau caractère.</a:documentation>
+      <a:documentation>Contenu de type paragraphe : tous les éléments de niveau
+        caractère.</a:documentation>
       <oneOrMore>
         <choice>
           <text/>
@@ -813,7 +903,9 @@
       <element name="ab">
         <a:documentation>Un bloc “anonyme”. html5: &lt;hr></a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Cet élement est utilisé en dernier recours pour représenter un ornement ou un séparateur typographique (couillard ou cul de lampe) dont le contenu n'est pas du texte à indexer.</p>
+          <p>Cet élement est utilisé en dernier recours pour représenter un ornement ou un
+            séparateur typographique (couillard ou cul de lampe) dont le contenu n'est pas du texte
+            à indexer.</p>
         </div>
         <a:example href="teibook.xml#ab"/>
         <attribute name="type">
@@ -823,7 +915,8 @@
             <value>line</value>
             <a:documentation>Ligne vide (pour séparer des alinéas)</a:documentation>
             <value>ornament</value>
-            <a:documentation>Ornements, avec parfois le sens d'un séparateur entre deux sections, couillards et autres culs de lampe</a:documentation>
+            <a:documentation>Ornements, avec parfois le sens d'un séparateur entre deux sections,
+              couillards et autres culs de lampe</a:documentation>
           </choice>
         </attribute>
         <optional>
@@ -852,12 +945,14 @@
     </define>
     <define name="bibl">
       <element name="bibl">
-        <a:documentation>Référence bibliographique. Peut apparaître comme un bloc, comme un item de liste &lt;listBibl>, ou comme un élément “inline” contenu dans un bloc.</a:documentation>
+        <a:documentation>Référence bibliographique. Peut apparaître comme un bloc, comme un item de
+          liste &lt;listBibl>, ou comme un élément “inline” contenu dans un bloc.</a:documentation>
         <optional>
           <ref name="n-att"/>
         </optional>
         <optional>
-          <a:documentation>Lier une référence bibliographique à une citation par exemple.</a:documentation>
+          <a:documentation>Lier une référence bibliographique à une citation par
+            exemple.</a:documentation>
           <ref name="corresp"/>
         </optional>
         <optional>
@@ -902,7 +997,8 @@
     </define>
     <define name="cit">
       <element name="cit">
-        <a:documentation>Permet de regrouper un texte cité avec sa référence bibliographique.</a:documentation>
+        <a:documentation>Permet de regrouper un texte cité avec sa référence
+          bibliographique.</a:documentation>
         <oneOrMore>
           <ref name="quote-p"/>
           <ref name="bibl"/>
@@ -911,7 +1007,8 @@
     </define>
     <define name="desc">
       <element name="desc">
-        <a:documentation>Description , notamment dans les figures, &lt;html5:figcaption></a:documentation>
+        <a:documentation>Description , notamment dans les figures,
+          &lt;html5:figcaption></a:documentation>
         <!-- identifiant et n° dans le conteneur, lang pour description multiple -->
         <optional>
           <ref name="xml.lang"/>
@@ -954,7 +1051,8 @@
     </define>
     <define name="eg">
       <element name="eg">
-        <a:documentation>Exemple de code, apparaissant souvent en texte préformaté, html5:pre</a:documentation>
+        <a:documentation>Exemple de code, apparaissant souvent en texte préformaté,
+          html5:pre</a:documentation>
         <ref name="xml-atts"/>
         <optional>
           <ref name="n-att"/>
@@ -965,7 +1063,13 @@
     <define name="l">
       <element name="l">
         <a:documentation>Un vers, généralement contenu dans une strophe &lt;lg></a:documentation>
-        <div xmlns="http://www.w3.org/1999/xhtml"> <br/>Pour les vers rompus du théâtre (– Hé ? – Quoi ! – Ah…), renseigner l’attribut @part qui permettra à une application de rétablir les alignements, indiquer explicitement la succession pour informer un automate : Initial (1) – Medial (0 ou n) – Final (1) <br/>Les indentations spécifiques sont à inscrire sous forme d’espaces insécables (caractère unicode équivalent à l’entité XML <![CDATA[&#160;]]>). Pour les vers numérotés, le numéro est inscrit dans l’attribut <a:att>n</a:att>.</div>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+          <br/>Pour les vers rompus du théâtre (– Hé ? – Quoi ! – Ah…), renseigner l’attribut @part
+          qui permettra à une application de rétablir les alignements, indiquer explicitement la
+          succession pour informer un automate : Initial (1) – Medial (0 ou n) – Final (1) <br/>Les
+          indentations spécifiques sont à inscrire sous forme d’espaces insécables (caractère
+          unicode équivalent à l’entité XML <![CDATA[&#160;]]>). Pour les vers numérotés, le numéro
+          est inscrit dans l’attribut <a:att>n</a:att>.</div>
         <ref name="xml-atts"/>
         <optional>
           <ref name="n-att"/>
@@ -986,7 +1090,6 @@
               <value>alex</value>
               <text/>
             </choice>
-            
           </attribute>
         </optional>
         <optional>
@@ -1028,7 +1131,9 @@
     </define>
     <define name="label">
       <element name="label">
-        <a:documentation>Étiquette, pour un intitulé court, de niveau paragraphe ou de niveau caractère. Utilisé par exemple pour les intertitres, pour des listes de définitions, ou dans le théâtre.</a:documentation>
+        <a:documentation>Étiquette, pour un intitulé court, de niveau paragraphe ou de niveau
+          caractère. Utilisé par exemple pour les intertitres, pour des listes de définitions, ou
+          dans le théâtre.</a:documentation>
         <ref name="rendering.block"/>
         <zeroOrMore>
           <choice>
@@ -1049,13 +1154,18 @@
           <attribute name="type">
             <choice>
               <value>dateline</value>
-              <a:documentation>Ligne de date qui n'est pas en fin de section (par exemple dans une citation)</a:documentation>
+              <a:documentation>Ligne de date qui n'est pas en fin de section (par exemple dans une
+                citation)</a:documentation>
               <value>head</value>
-              <a:documentation>Intertitre indépendant de la hiérarchie du document (pas un titre de partie ou de section)</a:documentation>
+              <a:documentation>Intertitre indépendant de la hiérarchie du document (pas un titre de
+                partie ou de section)</a:documentation>
               <value>salute</value>
-              <a:documentation>Salutation ou dédicace qui n'est pas en tête d'une section (par exemple dans une citation)</a:documentation>
+              <a:documentation>Salutation ou dédicace qui n'est pas en tête d'une section (par
+                exemple dans une citation)</a:documentation>
               <value>speaker</value>
-              <a:documentation>Théâtre, intertitre avant une tirade contenant généralement au moins un nom de personnage &lt;name>, et parfois des didascalies &lt;stage></a:documentation>
+              <a:documentation>Théâtre, intertitre avant une tirade contenant généralement au moins
+                un nom de personnage &lt;name>, et parfois des didascalies
+                &lt;stage></a:documentation>
             </choice>
           </attribute>
         </optional>
@@ -1142,7 +1252,12 @@
       <element name="q">
         <a:documentation>Bloc ou suite de blocs distingués du flux principal</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Bloc de texte inséré dans un texte qui interrompt le texte principal, généralement séparé du texte environnant par un dispositif typographique spécifique (italique, blanc typographique, passage guillemeté). Contrairement à <a:el>quote</a:el>, le contenu de &lt;q&gt; ne peut pas être attribué à une origine extérieure au texte (origine fictionnelle ou non identifiable). Exemples : récit enchâssé, lettre insérée, article de presse, acte notarié, poème, traité, axiomes…</p>
+          <p>Bloc de texte inséré dans un texte qui interrompt le texte principal, généralement
+            séparé du texte environnant par un dispositif typographique spécifique (italique, blanc
+            typographique, passage guillemeté). Contrairement à <a:el>quote</a:el>, le contenu de
+            &lt;q&gt; ne peut pas être attribué à une origine extérieure au texte (origine
+            fictionnelle ou non identifiable). Exemples : récit enchâssé, lettre insérée, article de
+            presse, acte notarié, poème, traité, axiomes…</p>
         </div>
         <ref name="xml-atts"/>
         <optional>
@@ -1190,7 +1305,8 @@
     </define>
     <define name="quote-p">
       <element name="quote">
-        <a:documentation>Citation, notamment les paragraphes en retrait ou/et en italique, &lt;html5:blockquote></a:documentation>
+        <a:documentation>Citation, notamment les paragraphes en retrait ou/et en italique,
+          &lt;html5:blockquote></a:documentation>
         <ref name="xml-atts"/>
         <optional>
           <ref name="type-att"/>
@@ -1262,7 +1378,10 @@
     <a:documentation>Figures, tables et listes</a:documentation>
     <define name="figure">
       <element name="figure">
-        <a:documentation>Boîte hors du flux, parfois encadrée, pouvant contenir une image, une table, une formule, ou autre objet susceptible d’être référencé dans une table dédiée. Permet notamment d’envelopper une image avec sa légende. &lt;html5:figure></a:documentation>
+        <a:documentation>Boîte hors du flux, parfois encadrée, pouvant contenir une image, une
+          table, une formule, ou autre objet susceptible d’être référencé dans une table dédiée.
+          Permet notamment d’envelopper une image avec sa légende.
+          &lt;html5:figure></a:documentation>
         <optional>
           <ref name="n-att"/>
         </optional>
@@ -1284,9 +1403,15 @@
       <element name="list">
         <a:documentation>Listes, &lt;html5:ul> &lt;html5:ol> &lt;html5:dl></a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Les listes récursives permettent de représenter de nombreux composants textuels, il sont notamment utilisés, selon les conseils de la documentation TEI, pour les index ou les tables des matières.</p>
+          <p>Les listes récursives permettent de représenter de nombreux composants textuels, il
+            sont notamment utilisés, selon les conseils de la documentation TEI, pour les index ou
+            les tables des matières.</p>
           <a:example href="teibook.xml#list"/>
-          <p>Liste de définitions, <a href="http://www.w3.org/TR/html5/the-dl-element.html#the-dl-element">[html]</a>, adapté à l’encodage de tables à deux colonnes de type légende ou dictionnaire. L’attribut <a:att>rend</a:att> permet à un programme d’interpréter différemment l’information.</p>
+          <p>Liste de définitions, <a
+              href="http://www.w3.org/TR/html5/the-dl-element.html#the-dl-element">[html]</a>,
+            adapté à l’encodage de tables à deux colonnes de type légende ou dictionnaire.
+            L’attribut <a:att>rend</a:att> permet à un programme d’interpréter différemment
+            l’information.</p>
           <a:example href="teibook.xml#dl"/>
         </div>
         <optional>
@@ -1296,13 +1421,15 @@
           <attribute name="type">
             <choice>
               <value>dialogue</value>
-              <a:documentation>Dialogue, dans un roman, pour grouper les tours de parole</a:documentation>
+              <a:documentation>Dialogue, dans un roman, pour grouper les tours de
+                parole</a:documentation>
               <value>gloss</value>
               <a:documentation>Glossaire, avec une alternance &lt;label> &lt;item></a:documentation>
               <value>index</value>
               <a:documentation>Index, pour reprise de l’imprimé</a:documentation>
               <value>toc</value>
-              <a:documentation>“Table of Contents”, table des matières, pour reprise de l’imprimé</a:documentation>
+              <a:documentation>“Table of Contents”, table des matières, pour reprise de
+                l’imprimé</a:documentation>
               <data type="token"/>
             </choice>
           </attribute>
@@ -1387,7 +1514,10 @@
     </define>
     <define name="table">
       <element name="table">
-        <a:documentation>Table, &lt;html5:table>. Avant essaiera de limiter l'usage des tables aux structures de contenu qui ne peuvent pas être ramenées à une liste &lt;list> (penser notamment aux listes de définitions qui correspondent à des tableaux à deux colonnes)</a:documentation>
+        <a:documentation>Table, &lt;html5:table>. Avant essaiera de limiter l'usage des tables aux
+          structures de contenu qui ne peuvent pas être ramenées à une liste &lt;list> (penser
+          notamment aux listes de définitions qui correspondent à des tableaux à deux
+          colonnes)</a:documentation>
         <ref name="rendering.figure"/>
         <zeroOrMore>
           <choice>
@@ -1500,16 +1630,23 @@
     </define>
     <define name="c">
       <element name="c">
-        <a:documentation>Caractère auquel attacher des propriétés particulières, par exemple pour isoler une lettrine.</a:documentation>
+        <a:documentation>Caractère auquel attacher des propriétés particulières, par exemple pour
+          isoler une lettrine.</a:documentation>
         <a:example>
           <l><c n="vertical">L</c>’amour est libre, il n’est jamais soumis au sort</l>
           <l><c rend="vertical">O</c> Lou, le mien est plus fort encor que la mort</l>
           <l><c rend="vertical">U</c>n cœur, le mien te suit dans ton voyage au Nord</l>
         </a:example>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <div><span style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);">L</span>’amour est libre, il n’est jamais soumis au sort</div>
-          <div><span style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);">O</span> Lou, le mien est plus fort encor que la mort</div>
-          <div><span style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);">U</span>n cœur, le mien te suit dans ton voyage au Nord</div>
+          <div><span
+              style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);"
+              >L</span>’amour est libre, il n’est jamais soumis au sort</div>
+          <div><span
+              style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);"
+              >O</span> Lou, le mien est plus fort encor que la mort</div>
+          <div><span
+              style="font-size: 170%; font-weight: bold; display: inline-block; transform-origin: top right 0; margin-top: 1.35em; position: absolute; transform: rotate(90deg);"
+              >U</span>n cœur, le mien te suit dans ton voyage au Nord</div>
         </div>
         <optional>
           <ref name="n-att"/>
@@ -1537,14 +1674,27 @@
     </define>
     <define name="hi">
       <element name="hi">
-        <a:documentation>Mise en forme de niveau caractère, sans interprétation sémantique (ex : italique, gras, couleurs…)</a:documentation>
+        <a:documentation>Mise en forme de niveau caractère, sans interprétation sémantique (ex :
+          italique, gras, couleurs…)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>La liste des possibilités de mise en forme est volontairement close, afin de favoriser un balisage plus sémantique, ou alors de reporter les styles de caractères plus spécifiques vers l'élément <a:el>seg</a:el>.</p>
-          <p>L'attribut @n peut être utilisé pour conserver un code couleur, par exemple après conversion depuis un traitement de texte (surlignage, coloration), en attendant que la fonction sémantique voulue par l'auteur soit attribuée par un remplacement ultérieur.</p>
-          <p>Il est parfois nécessaire de préciser qu'à l'intérieur d'un segment mis en forme (ex : citation en italique), une expression apparaît en romain (ex : mot en mention dans une citation : <i>« J’appelle</i> typographie <i>la mise à plat d’une pensée »</i> ; titre d’ouvrage dans un titre en italique : <i>le</i> Quichotte <i>au XX<sup>e</sup> s.</i>). On recommande pour ces cas de redoubler la mise en forme (ex : italique dans l'italique), l'apparence peut ainsi être restaurée par stylage. Un balisage typographique doit pouvoir généralement résoudre tous ces cas.</p>
+          <p>La liste des possibilités de mise en forme est volontairement close, afin de favoriser
+            un balisage plus sémantique, ou alors de reporter les styles de caractères plus
+            spécifiques vers l'élément <a:el>seg</a:el>.</p>
+          <p>L'attribut @n peut être utilisé pour conserver un code couleur, par exemple après
+            conversion depuis un traitement de texte (surlignage, coloration), en attendant que la
+            fonction sémantique voulue par l'auteur soit attribuée par un remplacement
+            ultérieur.</p>
+          <p>Il est parfois nécessaire de préciser qu'à l'intérieur d'un segment mis en forme (ex :
+            citation en italique), une expression apparaît en romain (ex : mot en mention dans une
+            citation : <i>« J’appelle</i> typographie <i>la mise à plat d’une pensée »</i> ; titre
+            d’ouvrage dans un titre en italique : <i>le</i> Quichotte <i>au XX<sup>e</sup> s.</i>).
+            On recommande pour ces cas de redoubler la mise en forme (ex : italique dans
+            l'italique), l'apparence peut ainsi être restaurée par stylage. Un balisage
+            typographique doit pouvoir généralement résoudre tous ces cas.</p>
           <a:example>
             <!-- Balisage TEI respectant la continuité typographique -->
-            <hi rend="i">« J’appelle <hi rend="i">typographie</hi> la mise à plat d’une pensée »</hi>
+            <hi rend="i">« J’appelle <hi rend="i">typographie</hi> la mise à plat d’une
+              pensée »</hi>
             <!-- Balisage TEI plus sémantique -->
             <q>J'appelle <term rend="i">typographie</term> la mise à plat d’une pensée</q>
           </a:example>
@@ -1587,7 +1737,10 @@
     </define>
     <define name="g">
       <element name="g">
-        <a:documentation>Caractère particulier qui peuvent ne pas être correctement rendus dans les polices unicode habituelles. L'encadrement du caractère risqué ou approximatif permet d'adapter le rendu selon le média de destination. Indiquer obligatoirement un code local dans l’attribut @n (dans l'esprit du nom d'une entité XML).</a:documentation>
+        <a:documentation>Caractère particulier qui peuvent ne pas être correctement rendus dans les
+          polices unicode habituelles. L'encadrement du caractère risqué ou approximatif permet
+          d'adapter le rendu selon le média de destination. Indiquer obligatoirement un code local
+          dans l’attribut @n (dans l'esprit du nom d'une entité XML).</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
           <a:example>
             <c n="cent">¢</c>
@@ -1603,7 +1756,11 @@
     </define>
     <define name="gap">
       <element name="gap">
-        <a:documentation>Texte non transcrit. Indiquer obligatoirement une raison et un ordre de grandeur. Les unités de distance linéaire sont interprétées verticalement lorsque que l’élément est utilisé au niveau paragraphe, sinon elles sont interprétées horizontalement. Pour les manques horizontaux sur plus d'une ligne, préférer un ordre de grandeur en caractères.</a:documentation>
+        <a:documentation>Texte non transcrit. Indiquer obligatoirement une raison et un ordre de
+          grandeur. Les unités de distance linéaire sont interprétées verticalement lorsque que
+          l’élément est utilisé au niveau paragraphe, sinon elles sont interprétées horizontalement.
+          Pour les manques horizontaux sur plus d'une ligne, préférer un ordre de grandeur en
+          caractères.</a:documentation>
         <optional>
           <attribute name="reason">
             <choice>
@@ -1639,13 +1796,16 @@
     </define>
     <define name="seg">
       <element name="seg">
-        <a:documentation>Segment de texte à distinguer, à utiliser en derniers recours lorsqu’aucun autre élément n’est approprié, permet notamment de porter une classe ou un identifiant, &lt;html5:span></a:documentation>
+        <a:documentation>Segment de texte à distinguer, à utiliser en derniers recours lorsqu’aucun
+          autre élément n’est approprié, permet notamment de porter une classe ou un identifiant,
+          &lt;html5:span></a:documentation>
         <optional>
           <!-- <ref name="type-att"/> -->
           <attribute name="type">
             <choice>
               <value>exquote</value>
-              <a:documentation>Baliser dans une citation les incises et commentaires qui viennent l’interrompre.</a:documentation>
+              <a:documentation>Baliser dans une citation les incises et commentaires qui viennent
+                l’interrompre.</a:documentation>
               <!-- http://listserv.brown.edu/archives/cgi-bin/wa?A2=TEI-L;bc182630.1306 -->
               <value>tab</value>
               <!--
@@ -1668,11 +1828,15 @@
     </define>
     <define name="space">
       <element name="space">
-        <a:documentation>Espace significatif. Dans le mesure du possible, éviter cet élément lorsque l’espace peut être représenté par une suite d’espaces insécables ' ' (caractère unicode équivalent à l’entité XML <![CDATA[&#160;]]>). </a:documentation>
+        <a:documentation>Espace significatif. Dans le mesure du possible, éviter cet élément lorsque
+          l’espace peut être représenté par une suite d’espaces insécables ' ' (caractère unicode
+          équivalent à l’entité XML <![CDATA[&#160;]]>). </a:documentation>
         <optional>
           <choice>
             <attribute name="extent">
-              <a:documentation>Renseigner avec une expression CSS : width:5ex /* 5 caractères de long */; width:50% /* une demi-ligne */; height:4em /* 4 ligne de haut */</a:documentation>
+              <a:documentation>Renseigner avec une expression CSS : width:5ex /* 5 caractères de
+                long */; width:50% /* une demi-ligne */; height:4em /* 4 ligne de haut
+                */</a:documentation>
             </attribute>
             <attribute name="rend">
               <choice>
@@ -1749,7 +1913,6 @@
         </oneOrMore>
       </element>
     </define>
-    
     <define name="who">
       <attribute name="who">
         <data type="IDREFS"/>
@@ -1759,26 +1922,78 @@
       <element name="stage">
         <a:documentation>Théâtre, indication scénique.</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>La <b>didascalie</b> est une notion pouvant accepter plusieurs définitions. Un encodage en XML impose une grammaire stricte dans la désignation et l’imbrication des éléments. A priori, le balisage des didascalies concerne principalement l’élément <a:el>stage</a:el>. Il peut se trouver au niveau de la pièce (Le Cid : « La scène est à Séville »), de l’acte, de la scène, de la réplique, ou en cours de réplique (« Tartuffe : Le Ciel défend, de vrai, certains contentements ; <i>C’est un Scélérat qui parle.</i> Mais on trouve avec lui des accommodements. »). Tout semble théoriquement prévu, mais la machine se grippe rapidement, par exemple avec cette entête de réplique pourtant fréquente « SGANARELLE, à part ». En TEI, les noms de personnages sont enveloppées dans l’élément <a:el>speaker</a:el>. <a:el>speaker</a:el> n’a pas le droit de contenir l’élément  <a:el>stage</a:el>. Ce choix a été longtemps discuté et réfléchi dans la communauté TEI, il porte potentiellement une définition des didascalies.</p>
-          <p>On pourrait proposer cette première définition : « la didascalie est un discours de l’auteur et non d’un personnage ». Ceci recouvre très bien ce qui se met dans un <a:el>stage</a:el>, mais aussi, une grande partie du paratexte. La distribution des rôles <a:el>castList</a:el> est aussi un discours de l’auteur, ne serait-ce que par son ordre qui donne une indication scénique. Ainsi, Tartuffe est entre la famille et les valets, qualifié de « faux dévot ». Cette indication scénique donne une direction importante aux acteurs, la TEI la met généralement dans un jeu d’éléments pour encoder la distribution des rôles : <a:el>castList</a:el>, contenant des <a:el>castItem</a:el>, contenant principalement les notions de <a:el>role</a:el>, <a:el>actor</a:el> et <a:el>roleDesc</a:el> (description du rôle, qui contiendrait « faux dévot »). <a:el>stage</a:el> n’est pas autorisé dans <a:el>castItem</a:el>. Le « discours de l’auteur » s’avère donc une notion très imprécise à interpréter. D’ailleurs, ne serait-ce pas l’auteur, ou certains de ses aspects, qui parle à travers chaque personnage ?
-           </p>
-          <p>Nous avons préféré partir d’une analyse plus concrète de la situation de communication. Généralement, un texte imprimé de théâtre s’adresse d’abord à une troupe. Il en résulte une distinction forte : une didascalie est du texte écrit à destination des acteurs, et qui ne se prononce pas. Cette définition a des effets larges, qui expliquent assez bien les choix de la TEI.</p>
+          <p>La <b>didascalie</b> est une notion pouvant accepter plusieurs définitions. Un encodage
+            en XML impose une grammaire stricte dans la désignation et l’imbrication des éléments. A
+            priori, le balisage des didascalies concerne principalement l’élément
+            <a:el>stage</a:el>. Il peut se trouver au niveau de la pièce (Le Cid : « La scène est à
+            Séville »), de l’acte, de la scène, de la réplique, ou en cours de réplique (« Tartuffe
+            : Le Ciel défend, de vrai, certains contentements ; <i>C’est un Scélérat qui parle.</i>
+            Mais on trouve avec lui des accommodements. »). Tout semble théoriquement prévu, mais la
+            machine se grippe rapidement, par exemple avec cette entête de réplique pourtant
+            fréquente « SGANARELLE, à part ». En TEI, les noms de personnages sont enveloppées dans
+            l’élément <a:el>speaker</a:el>. <a:el>speaker</a:el> n’a pas le droit de contenir
+            l’élément <a:el>stage</a:el>. Ce choix a été longtemps discuté et réfléchi dans la
+            communauté TEI, il porte potentiellement une définition des didascalies.</p>
+          <p>On pourrait proposer cette première définition : « la didascalie est un discours de
+            l’auteur et non d’un personnage ». Ceci recouvre très bien ce qui se met dans un
+              <a:el>stage</a:el>, mais aussi, une grande partie du paratexte. La distribution des
+            rôles <a:el>castList</a:el> est aussi un discours de l’auteur, ne serait-ce que par son
+            ordre qui donne une indication scénique. Ainsi, Tartuffe est entre la famille et les
+            valets, qualifié de « faux dévot ». Cette indication scénique donne une direction
+            importante aux acteurs, la TEI la met généralement dans un jeu d’éléments pour encoder
+            la distribution des rôles : <a:el>castList</a:el>, contenant des <a:el>castItem</a:el>,
+            contenant principalement les notions de <a:el>role</a:el>, <a:el>actor</a:el> et
+              <a:el>roleDesc</a:el> (description du rôle, qui contiendrait « faux dévot »).
+              <a:el>stage</a:el> n’est pas autorisé dans <a:el>castItem</a:el>. Le « discours de
+            l’auteur » s’avère donc une notion très imprécise à interpréter. D’ailleurs, ne
+            serait-ce pas l’auteur, ou certains de ses aspects, qui parle à travers chaque
+            personnage ? </p>
+          <p>Nous avons préféré partir d’une analyse plus concrète de la situation de communication.
+            Généralement, un texte imprimé de théâtre s’adresse d’abord à une troupe. Il en résulte
+            une distinction forte : une didascalie est du texte écrit à destination des acteurs, et
+            qui ne se prononce pas. Cette définition a des effets larges, qui expliquent assez bien
+            les choix de la TEI.</p>
           <ul>
-            <li>La distribution ou liste de personnages en tête de pièce <a:el>castList</a:el> est une didascalie à destination de la troupe pour annoncer les rôles, emplois, et relations. La dramaturgie automatique a besoin de cette information, de manière plus précise et plus structurée.</li>
-            <li>La distribution de scène, ex : « Phède, Hippolyte », relève de la didascalie. Le titre d’acte, de tableau ou de scène, aussi : « Scène 1 ». Il en résulte que l’on pourrait mettre titre de section et liste de personnages dans un même élément, un “titre” <a:el>head</a:el> : « Scène 1. Phèdre, Hippolyte. ». Ce n’est pas contradictoire avec la définition ci-dessus, mais <a:el>head</a:el> en TEI a le sens plus général de titres de section. Or, la liste des personnages peut être diversement longue et mêlée d’autres indications scéniques, ne relevant plus à proprement du titre. En conséquence, nous plaçons la distribution de scène dans un élément <a:el>stage</a:el>, juste après le <a:el>head</a:el>. Cette structure n’engage pas la présentation typographique (ex : tout peut paraître une ligne). La dramaturgie automatique aura besoin d’informations supplémentaires, cf. <a:el>listPerson</a:el>.</li>
-            <li>Les noms de personnages en tête de réplique <a:el>speaker</a:el> sont des didascalies, raison qui justifie TEI de ne pas y autoriser <a:el>stage</a:el> (comme on ne peut pas mettre un paragraphe dans un paragraphe). Il en résulte que les mots qui ne sont pas des noms de personnage ont le même statut de didascalie, les distinctions ne sont que typographiques. 
-              <a:example><speaker>Pipi <emph>et</emph> quatorze, <emph>riant</emph></speaker></a:example>
+            <li>La distribution ou liste de personnages en tête de pièce <a:el>castList</a:el> est
+              une didascalie à destination de la troupe pour annoncer les rôles, emplois, et
+              relations. La dramaturgie automatique a besoin de cette information, de manière plus
+              précise et plus structurée.</li>
+            <li>La distribution de scène, ex : « Phède, Hippolyte », relève de la didascalie. Le
+              titre d’acte, de tableau ou de scène, aussi : « Scène 1 ». Il en résulte que l’on
+              pourrait mettre titre de section et liste de personnages dans un même élément, un
+              “titre” <a:el>head</a:el> : « Scène 1. Phèdre, Hippolyte. ». Ce n’est pas
+              contradictoire avec la définition ci-dessus, mais <a:el>head</a:el> en TEI a le sens
+              plus général de titres de section. Or, la liste des personnages peut être diversement
+              longue et mêlée d’autres indications scéniques, ne relevant plus à proprement du
+              titre. En conséquence, nous plaçons la distribution de scène dans un élément
+                <a:el>stage</a:el>, juste après le <a:el>head</a:el>. Cette structure n’engage pas
+              la présentation typographique (ex : tout peut paraître une ligne). La dramaturgie
+              automatique aura besoin d’informations supplémentaires, cf.
+              <a:el>listPerson</a:el>.</li>
+            <li>Les noms de personnages en tête de réplique <a:el>speaker</a:el> sont des
+              didascalies, raison qui justifie TEI de ne pas y autoriser <a:el>stage</a:el> (comme
+              on ne peut pas mettre un paragraphe dans un paragraphe). Il en résulte que les mots
+              qui ne sont pas des noms de personnage ont le même statut de didascalie, les
+              distinctions ne sont que typographiques. <a:example><speaker>Pipi <emph>et</emph>
+                  quatorze, <emph>riant</emph></speaker></a:example>
             </li>
           </ul>
-          <p>Selon cette définition, l'élément <a:el>stage</a:el> peut apparaître à de nombreux endroits :</p>
+          <p>Selon cette définition, l'élément <a:el>stage</a:el> peut apparaître à de nombreux
+            endroits :</p>
           <ul>
-            <li><code>div[@type='act' or @type='prologue' or @type='interlude']/stage[1]</code> – didascalie d’acte (ou prologue ou intermède) lorsque la division de niveau 1 ne comporte pas de scènes</li>
-            <li><code>div[@type='scene']/stage[1]</code> – didascalie de scène listant les personnages</li>
+            <li><code>div[@type='act' or @type='prologue' or @type='interlude']/stage[1]</code> –
+              didascalie d’acte (ou prologue ou intermède) lorsque la division de niveau 1 ne
+              comporte pas de scènes</li>
+            <li><code>div[@type='scene']/stage[1]</code> – didascalie de scène listant les
+              personnages</li>
             <li><code>div/stage</code> – entre deux répliques <a:el>sp</a:el></li>
-            <li><code>sp/stage</code> – à l’intérieur d’une réplique, entre deux vers <a:el>l</a:el> ou deux paragraphes <a:el>p</a:el></li>
+            <li><code>sp/stage</code> – à l’intérieur d’une réplique, entre deux vers <a:el>l</a:el>
+              ou deux paragraphes <a:el>p</a:el></li>
             <li><code>sp/(l|p)/stage</code> – en cours de phrase</li>
           </ul>
-          <p>Pour une étude scientifique des indications scéniques, on conseillera d'utiliser des procédés analytiques plus élaborés, permettant notamment de typer et reconstruire des formules compréhensibles lorsqu'elles sont extraites du contexte.</p>
+          <p>Pour une étude scientifique des indications scéniques, on conseillera d'utiliser des
+            procédés analytiques plus élaborés, permettant notamment de typer et reconstruire des
+            formules compréhensibles lorsqu'elles sont extraites du contexte.</p>
         </div>
         <optional>
           <attribute name="rend">
@@ -1855,21 +2070,35 @@
       <element name="castList">
         <a:documentation>Théâtre, distribution</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p><a:el>castList</a:el> permet d'encoder la distribution d'un texte dramatique. La structuration sémantique, notamment l'élément <a:el>role</a:el>, permet de porter des informations, par exemple un identifiant qui sera rappelé avec un élément <a:el>person</a:el> dans une configuration scénique <a:el>listPerson</a:el>.</p>
+          <p><a:el>castList</a:el> permet d'encoder la distribution d'un texte dramatique. La
+            structuration sémantique, notamment l'élément <a:el>role</a:el>, permet de porter des
+            informations, par exemple un identifiant qui sera rappelé avec un élément
+              <a:el>person</a:el> dans une configuration scénique <a:el>listPerson</a:el>.</p>
           <a:example>
             <castList>
-              <castItem><role xml:id="madame-pernelle" rend="female veteran">Madame Pernelle</role>, <roleDesc>Mère d’Orgon</roleDesc>.</castItem>
-              <castItem><role xml:id="orgon" rend="male superior">Orgon</role>, <roleDesc>Mari d’Elmire</roleDesc>.</castItem>
-              <castItem><role xml:id="elmire" rend="female superior">Elmire</role>, <roleDesc>Femme d’Orgon</roleDesc>.</castItem>
-              <castItem><role xml:id="damis" rend="male junior">Damis</role>, <roleDesc>Fils d’Orgon</roleDesc>.</castItem>
-              <castItem><role xml:id="mariane" rend="female junior">Mariane</role>, <roleDesc>Fille d’Orgon, et Amante de Valère</roleDesc>.</castItem>
-              <castItem><role xml:id="valere" rend="male junior">Valère</role>, <roleDesc>Amant de Mariane</roleDesc>.</castItem>
-              <castItem><role xml:id="cleante" rend="male">Cléante</role>, <roleDesc>Beau-frère d’Orgon</roleDesc>.</castItem>
-              <castItem><role xml:id="tartuffe" rend="male">Tartuffe</role>, <roleDesc>Faux Dévot</roleDesc>.</castItem>
-              <castItem><role xml:id="dorine" rend="female inferior">Dorine</role>, <roleDesc>Suivante de Mariane</roleDesc>.</castItem>
-              <castItem><role xml:id="loyal">Monsieur Loyal</role>, <roleDesc>Sergent</roleDesc>.</castItem>
+              <castItem><role xml:id="madame-pernelle" rend="female veteran">Madame Pernelle</role>,
+                  <roleDesc>Mère d’Orgon</roleDesc>.</castItem>
+              <castItem><role xml:id="orgon" rend="male superior">Orgon</role>, <roleDesc>Mari
+                  d’Elmire</roleDesc>.</castItem>
+              <castItem><role xml:id="elmire" rend="female superior">Elmire</role>, <roleDesc>Femme
+                  d’Orgon</roleDesc>.</castItem>
+              <castItem><role xml:id="damis" rend="male junior">Damis</role>, <roleDesc>Fils
+                  d’Orgon</roleDesc>.</castItem>
+              <castItem><role xml:id="mariane" rend="female junior">Mariane</role>, <roleDesc>Fille
+                  d’Orgon, et Amante de Valère</roleDesc>.</castItem>
+              <castItem><role xml:id="valere" rend="male junior">Valère</role>, <roleDesc>Amant de
+                  Mariane</roleDesc>.</castItem>
+              <castItem><role xml:id="cleante" rend="male">Cléante</role>, <roleDesc>Beau-frère
+                  d’Orgon</roleDesc>.</castItem>
+              <castItem><role xml:id="tartuffe" rend="male">Tartuffe</role>, <roleDesc>Faux
+                  Dévot</roleDesc>.</castItem>
+              <castItem><role xml:id="dorine" rend="female inferior">Dorine</role>,
+                  <roleDesc>Suivante de Mariane</roleDesc>.</castItem>
+              <castItem><role xml:id="loyal">Monsieur Loyal</role>,
+                <roleDesc>Sergent</roleDesc>.</castItem>
               <castItem><role xml:id="exempt">Un exempt</role>.</castItem>
-              <castItem><role xml:id="flipote" rend="female inferior">Flipote</role>, Servante de Mme Pernelle.</castItem>
+              <castItem><role xml:id="flipote" rend="female inferior">Flipote</role>, Servante de
+                Mme Pernelle.</castItem>
             </castList>
           </a:example>
         </div>
@@ -1911,20 +2140,38 @@
     </define>
     <define name="listPerson">
       <element name="listPerson">
-        <a:documentation>Liste de personnes, théâtre : configuration scénique (dramaturgie automatique)</a:documentation>
+        <a:documentation>Liste de personnes, théâtre : configuration scénique (dramaturgie
+          automatique)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p><a:el>listPerson</a:el> peut avoir de nombreux usages, ne sera documenté ici qu'un usage spécifique, pour le théâtre.</p>
-          <p>Un texte de théâtre encodé peut permettre des analyses automatiques, et notamment, suivre les <b>configurations</b> de personnages qui occupent la scène. Les didascalies permettent en général de donner des indications suffisantes à destination des humains pour reconstruire l'état de la scène, mais l'information doit être encodée pour qu'un automate puisse l'extraire avec précision.</p>
-          <p>Le théâtre classique français est divisé en scènes, avec en général la liste complète du personnel impliqué. En théorie, les entrées et les sorties définissent justement la division d'un acte en scènes. Ce n'est pas le cas dans toutes les traditions, par exemple le théâtre espagnol du grand siècle est souvent divisés en actes sur un même lieu où le personnel entre et sort. Par ailleurs, même dans le th'âtre français le plus classique, des entrées et des sorties peuvent inetrvenir entre des tirades, voire en plein milieu, ce qui fait généralement l'objet d'une indication scénique <a:el>stage</a:el>.</p>
-          <p>Une <b>configuration</b> est une partie d’un texte dramatique qui ne contient aucun mouvement d’entrée ou de sortie du plateau, et se définit par la liste des personnages qui sont présents durant cet intervalle. On peut distinguer les configurations successives en insérant un élément <a:el>listPerson</a:el> à chaque fois qu’un personnage entre ou sort, même si ce mouvement correspond à un changement de scène.</p>
-          <p>On peut également considérer qu'il y a une nouvelle configuration quand les mêmes personnages restent sur le plateau, mais que leurs relations changent (personnage caché qui apparaît, personnage endormi qui se réveille, ou inversement, etc.).</p>
+          <p><a:el>listPerson</a:el> peut avoir de nombreux usages, ne sera documenté ici qu'un
+            usage spécifique, pour le théâtre.</p>
+          <p>Un texte de théâtre encodé peut permettre des analyses automatiques, et notamment,
+            suivre les <b>configurations</b> de personnages qui occupent la scène. Les didascalies
+            permettent en général de donner des indications suffisantes à destination des humains
+            pour reconstruire l'état de la scène, mais l'information doit être encodée pour qu'un
+            automate puisse l'extraire avec précision.</p>
+          <p>Le théâtre classique français est divisé en scènes, avec en général la liste complète
+            du personnel impliqué. En théorie, les entrées et les sorties définissent justement la
+            division d'un acte en scènes. Ce n'est pas le cas dans toutes les traditions, par
+            exemple le théâtre espagnol du grand siècle est souvent divisés en actes sur un même
+            lieu où le personnel entre et sort. Par ailleurs, même dans le th'âtre français le plus
+            classique, des entrées et des sorties peuvent inetrvenir entre des tirades, voire en
+            plein milieu, ce qui fait généralement l'objet d'une indication scénique
+              <a:el>stage</a:el>.</p>
+          <p>Une <b>configuration</b> est une partie d’un texte dramatique qui ne contient aucun
+            mouvement d’entrée ou de sortie du plateau, et se définit par la liste des personnages
+            qui sont présents durant cet intervalle. On peut distinguer les configurations
+            successives en insérant un élément <a:el>listPerson</a:el> à chaque fois qu’un
+            personnage entre ou sort, même si ce mouvement correspond à un changement de scène.</p>
+          <p>On peut également considérer qu'il y a une nouvelle configuration quand les mêmes
+            personnages restent sur le plateau, mais que leurs relations changent (personnage caché
+            qui apparaît, personnage endormi qui se réveille, ou inversement, etc.).</p>
           <a:example>
             <div type="scene" xml:id="IV05">
               <head>Scène V</head>
-              <stage>Tartuffe, Elmire, Orgon
-                <listPerson type="configuration">
+              <stage>Tartuffe, Elmire, Orgon <listPerson type="configuration">
                   <person corresp="#tartuffe"/>
-                  <person corresp="#elmire" />
+                  <person corresp="#elmire"/>
                   <!-- Orgon est caché sous la table -->
                   <person corresp="#orgon" role="hidden"/>
                 </listPerson>
@@ -1936,14 +2183,19 @@
               <!-- ... -->
             </div>
           </a:example>
-          <p>La scène peut être vide, mais en général, une configuration comporte au moins un personnage (monologue) <a:el>person</a:el>, souvent plusieurs. Il est possible de regrouper les personnes d'une configuration dans un <a:el>listGroup</a:el>, ce qui permet de par exemple d'isoler les figurants des protagonistes.</p>
+          <p>La scène peut être vide, mais en général, une configuration comporte au moins un
+            personnage (monologue) <a:el>person</a:el>, souvent plusieurs. Il est possible de
+            regrouper les personnes d'une configuration dans un <a:el>listGroup</a:el>, ce qui
+            permet de par exemple d'isoler les figurants des protagonistes.</p>
         </div>
         <optional>
           <ref name="xml.id"/>
         </optional>
         <optional>
           <attribute name="n">
-            <a:documentation>Chiffre arabe indiquant l'ordre de la configuration à l'intérieur de la scène, peut être généré automatiquement, notamment pour générer automatiquement un identifiant.</a:documentation>
+            <a:documentation>Chiffre arabe indiquant l'ordre de la configuration à l'intérieur de la
+              scène, peut être généré automatiquement, notamment pour générer automatiquement un
+              identifiant.</a:documentation>
           </attribute>
         </optional>
         <optional>
@@ -1983,9 +2235,13 @@
     </define>
     <define name="person">
       <element name="person">
-        <a:documentation>Personne, théâtre : personnage dans une configuration scénique (dramaturgie automatique)</a:documentation>
+        <a:documentation>Personne, théâtre : personnage dans une configuration scénique (dramaturgie
+          automatique)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Personnage de théâtre, soit en déclaration initiale (alternative plus formalisée à <a:el>role</a:el>) avec identifiant <a:att>xml:id</a:att> obligatoire, soit dans une configuration scénique, avec identifiant <a:att>corresp</a:att> obligatoire, pointant vers la déclaration initiale du personnage.</p>
+          <p>Personnage de théâtre, soit en déclaration initiale (alternative plus formalisée à
+              <a:el>role</a:el>) avec identifiant <a:att>xml:id</a:att> obligatoire, soit dans une
+            configuration scénique, avec identifiant <a:att>corresp</a:att> obligatoire, pointant
+            vers la déclaration initiale du personnage.</p>
         </div>
         <choice>
           <group>
@@ -2033,12 +2289,12 @@
         </choice>
       </element>
     </define>
-    
   </div>
   <div xml:id="function">
     <a:documentation>Fonctions</a:documentation>
     <define name="function">
-      <a:documentation>Balises de niveau caractère qui indiquent la fonction d’un segment de texte, sans préjuger de sa mise en valeur typographique.</a:documentation>
+      <a:documentation>Balises de niveau caractère qui indiquent la fonction d’un segment de texte,
+        sans préjuger de sa mise en valeur typographique.</a:documentation>
       <choice>
         <ref name="abbr"/>
         <ref name="add"/>
@@ -2062,7 +2318,8 @@
       </choice>
     </define>
     <define name="textual">
-      <a:documentation>Contenu quasi textuel avec une typographie minimale, notamment à l’intérieur d'une balise fonctionnelle</a:documentation>
+      <a:documentation>Contenu quasi textuel avec une typographie minimale, notamment à l’intérieur
+        d'une balise fonctionnelle</a:documentation>
       <zeroOrMore>
         <choice>
           <text/>
@@ -2119,7 +2376,8 @@
     </define>
     <define name="code">
       <element name="code">
-        <a:documentation>Segment de code informatique, souvent en police machine à écrire, &lt;html5:code></a:documentation>
+        <a:documentation>Segment de code informatique, souvent en police machine à écrire,
+          &lt;html5:code></a:documentation>
         <ref name="textual"/>
       </element>
     </define>
@@ -2167,7 +2425,9 @@
     </define>
     <define name="foreign">
       <element name="foreign">
-        <a:documentation>Mot, expression, ou proposition dans une langue différente du contexte. Permet de spécifier une police particulière pour certains alphabets (grec, hébreu…).</a:documentation>
+        <a:documentation>Mot, expression, ou proposition dans une langue différente du contexte.
+          Permet de spécifier une police particulière pour certains alphabets (grec,
+          hébreu…).</a:documentation>
         <ref name="xml-atts"/>
         <ref name="textual"/>
       </element>
@@ -2203,7 +2463,9 @@
       <element name="num">
         <a:documentation>Nombre</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Le balisage des nombres est spécialement utile pour les chiffres romains, afin qu’ils puissent paraître en petites capitales selon les conventions d’édition, par exemple les siècles. <span style="font-variant:small-caps">xvi</span><sup>e</sup> s.</p>
+          <p>Le balisage des nombres est spécialement utile pour les chiffres romains, afin qu’ils
+            puissent paraître en petites capitales selon les conventions d’édition, par exemple les
+            siècles. <span style="font-variant:small-caps">xvi</span><sup>e</sup> s.</p>
           <a:example><num>xvi<hi rend="sup">e</hi></num> s.</a:example>
         </div>
         <optional>
@@ -2211,7 +2473,10 @@
         </optional>
         <optional>
           <attribute name="value">
-            <a:documentation>Pour certains corpus, comme les éditions de comptabilités manuscrites, les valeurs numériques peuvent être exploitées (ex : vérification automatique de sommes). L’attribut @value permet d’inscrire de telles valeurs en notation décimale.</a:documentation>
+            <a:documentation>Pour certains corpus, comme les éditions de comptabilités manuscrites,
+              les valeurs numériques peuvent être exploitées (ex : vérification automatique de
+              sommes). L’attribut @value permet d’inscrire de telles valeurs en notation
+              décimale.</a:documentation>
             <data type="integer"/>
           </attribute>
         </optional>
@@ -2220,7 +2485,8 @@
     </define>
     <define name="q">
       <element name="q">
-        <a:documentation>L’usage de cette balise est très déconseillé, sa sémantique étant particulièrement vague</a:documentation>
+        <a:documentation>L’usage de cette balise est très déconseillé, sa sémantique étant
+          particulièrement vague</a:documentation>
         <ref name="xml-atts"/>
         <zeroOrMore>
           <choice>
@@ -2240,7 +2506,8 @@
     </define>
     <define name="ref">
       <element name="ref">
-        <a:documentation>Lien simple, html5:&lt;a href="@target">texte&lt;/a>. Pour les liens internes, utiliser une URI ancre, #pb0101 (page 101).</a:documentation>
+        <a:documentation>Lien simple, html5:&lt;a href="@target">texte&lt;/a>. Pour les liens
+          internes, utiliser une URI ancre, #pb0101 (page 101).</a:documentation>
         <ref name="xml-atts"/>
         <attribute name="target">
           <text/>
@@ -2298,7 +2565,8 @@
   <div xml:id="entites">
     <a:documentation>Entités nommées</a:documentation>
     <define name="indexable">
-      <a:documentation>Balises de niveau caractère utiles à l’indexation des entités nommées</a:documentation>
+      <a:documentation>Balises de niveau caractère utiles à l’indexation des entités
+        nommées</a:documentation>
       <choice>
         <ref name="abbr"/>
         <ref name="author"/>
@@ -2315,7 +2583,9 @@
       <element name="author">
         <a:documentation>Auteur dans une référence bibliographique.</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Utile pour établir l’index des auteurs référencés dans le texte. L’élement <a:el>author</a:el> n’étant pas autorisé en dehors de <a:el>bibl</a:el>, les auteurs cités au fil du texte sont balisés avec <a:el>persName type="author"</a:el>.</p>
+          <p>Utile pour établir l’index des auteurs référencés dans le texte. L’élement
+              <a:el>author</a:el> n’étant pas autorisé en dehors de <a:el>bibl</a:el>, les auteurs
+            cités au fil du texte sont balisés avec <a:el>persName type="author"</a:el>.</p>
         </div>
         <ref name="index-atts"/>
         <ref name="rendering.char"/>
@@ -2345,11 +2615,18 @@
     <!-- on place où docAuthor ? -->
     <define name="docAuthor">
       <element name="docAuthor">
-        <a:documentation>Auteur du document, ou de la section (selon le contexte). Dans une page de titre, répétera une information déjà définie dans l’entête de métadonnées, par contre, est obligatoire pour les préfaciers, ou les chapitres dans un ouvrage collectif.</a:documentation>
+        <a:documentation>Auteur du document, ou de la section (selon le contexte). Dans une page de
+          titre, répétera une information déjà définie dans l’entête de métadonnées, par contre, est
+          obligatoire pour les préfaciers, ou les chapitres dans un ouvrage
+          collectif.</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>L’élément <a:el>docAuthor</a:el> relève d’une logique de métadonnée bibliographique : il permet par exemple d’établir la liste des contributeurs d’un recueil d’articles. Il n’est en aucun cas utilisé l’indexation des auteurs cités dans un texte (voir <a:el>author</a:el> et <a:el>persName type="author"</a:el>).</p>
+          <p>L’élément <a:el>docAuthor</a:el> relève d’une logique de métadonnée bibliographique :
+            il permet par exemple d’établir la liste des contributeurs d’un recueil d’articles. Il
+            n’est en aucun cas utilisé l’indexation des auteurs cités dans un texte (voir
+              <a:el>author</a:el> et <a:el>persName type="author"</a:el>).</p>
           <!-- TODO -->
-          <p>De type <em>bloc</em> dans un <a:el>titlePage</a:el> et de type <em>inline</em> dans un <a:el>byline</a:el>.</p>
+          <p>De type <em>bloc</em> dans un <a:el>titlePage</a:el> et de type <em>inline</em> dans un
+              <a:el>byline</a:el>.</p>
         </div>
         <ref name="rendering.block"/>
         <ref name="index-atts"/>
@@ -2367,10 +2644,16 @@
     </define>
     <define name="name">
       <element name="name">
-        <a:documentation>Entités nommmées non résolues (personne, lieu, institution, initiales…)</a:documentation>
+        <a:documentation>Entités nommmées non résolues (personne, lieu, institution,
+          initiales…)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Ce repérage très générique des entités peut être produit automatiquement. Il est utile notamment à l’extraction des mots qui ne sont pas du dictionnaire, pour les traitements lexicographiques.</p>
-          <p>Ce balisage est temporaire et, idéalement, il doit être précisé : <a:el>name</a:el> ne porte pas les attributs d’indexation (index-atts()) car la résolution des entités doit permettre de préciser la sémantique (<a:el>persName</a:el>, <a:el>placeName</a:el>, etc.).</p>
+          <p>Ce repérage très générique des entités peut être produit automatiquement. Il est utile
+            notamment à l’extraction des mots qui ne sont pas du dictionnaire, pour les traitements
+            lexicographiques.</p>
+          <p>Ce balisage est temporaire et, idéalement, il doit être précisé : <a:el>name</a:el> ne
+            porte pas les attributs d’indexation (index-atts()) car la résolution des entités doit
+            permettre de préciser la sémantique (<a:el>persName</a:el>, <a:el>placeName</a:el>,
+            etc.).</p>
         </div>
         <ref name="xml-atts"/>
         <optional>
@@ -2386,11 +2669,34 @@
         <div xmlns="http://www.w3.org/1999/xhtml">
           <p>Les noms de personne peuvent être balisés pour différents objectifs :</p>
           <ul>
-            <li><b>Mise en forme typographique</b> : si l’objectif est la mise en petites capitales des noms de famille, utiliser <a:el>surname</a:el>, afin que <a:el>persName</a:el> encadre la totalité d’un nom de personne, nom, prénom, et autres composantes compris.</li>
-            <li><b>Traitements linguistiques</b> : le but sera d’inclure tous les noms propres. Il doit être possible de remplacer <a:el>persName</a:el> par "il" ou "elle" sans rompre la signification de la phrase. Pour un tel objectif, il convient de baliser aussi les noms abrégés ("K.", "Joseph K.").</li>
-            <li><b>Indexation</b> : il est nécessaire d'ajouter l’attribut utile (index-atts()) à l’identification de la personne, notamment pour les pronoms, et permettre les regroupements.<br/> <a:example><persName key="dieu">Il</persName></a:example> L’attribut <a:att>type</a:att> permet, grâce à la valeur "author", d’indexer les <em>auteurs mentionnés</em> au fil du texte. De manière complémentaire, l’élement <a:el>author</a:el>, autorisé uniquement dans <a:el>bibl</a:el>, permet d’indexer les <em>auteurs référencés</em>, c’est-à-dire ceux dont les citations sont explicitement référencées par un auteur ou un éditeur scientifique. Pour établir l’index des auteurs cités dans un texte, il convient donc de regrouper les clés (<a:att>key</a:att>, <a:att>corresp</a:att> ou <a:att>ref</a:att>, cf index-atts()) renseignées pour les éléments <a:el>persName @type="author"]</a:el> et <a:el>author</a:el>.<br/> Auteur mentionné : <a:example>Je veux parler du drame d’amour qui mit aux prises, voici soixante ans passé, deux des beaux génies de notre âge : <persName ref="http://www.idref.fr/027043339" type="author">Alfred de Musset</persName> et <persName ref="http://www.idref.fr/027121577" type="author">George Sand</persName>.</a:example> Auteur référencé : <a:example><note>Le merveilleux
-              <bibl><title>Cyrano</title> de <author ref="http://www.idref.fr/027109860">M. Edmond Rostand</author></bibl>
-               est venu confirmer cette hypothèse. (NdA)</note></a:example> </li>
+            <li><b>Mise en forme typographique</b> : si l’objectif est la mise en petites capitales
+              des noms de famille, utiliser <a:el>surname</a:el>, afin que <a:el>persName</a:el>
+              encadre la totalité d’un nom de personne, nom, prénom, et autres composantes
+              compris.</li>
+            <li><b>Traitements linguistiques</b> : le but sera d’inclure tous les noms propres. Il
+              doit être possible de remplacer <a:el>persName</a:el> par "il" ou "elle" sans rompre
+              la signification de la phrase. Pour un tel objectif, il convient de baliser aussi les
+              noms abrégés ("K.", "Joseph K.").</li>
+            <li><b>Indexation</b> : il est nécessaire d'ajouter l’attribut utile (index-atts()) à
+              l’identification de la personne, notamment pour les pronoms, et permettre les regroupements.<br/>
+              <a:example><persName key="dieu">Il</persName></a:example> L’attribut
+                <a:att>type</a:att> permet, grâce à la valeur "author", d’indexer les <em>auteurs
+                mentionnés</em> au fil du texte. De manière complémentaire, l’élement
+                <a:el>author</a:el>, autorisé uniquement dans <a:el>bibl</a:el>, permet d’indexer
+              les <em>auteurs référencés</em>, c’est-à-dire ceux dont les citations sont
+              explicitement référencées par un auteur ou un éditeur scientifique. Pour établir
+              l’index des auteurs cités dans un texte, il convient donc de regrouper les clés
+                (<a:att>key</a:att>, <a:att>corresp</a:att> ou <a:att>ref</a:att>, cf index-atts())
+              renseignées pour les éléments <a:el>persName @type="author"]</a:el> et
+                <a:el>author</a:el>.<br/> Auteur mentionné : <a:example>Je veux parler du drame
+                d’amour qui mit aux prises, voici soixante ans passé, deux des beaux génies de notre
+                âge : <persName ref="http://www.idref.fr/027043339" type="author">Alfred de
+                  Musset</persName> et <persName ref="http://www.idref.fr/027121577" type="author"
+                  >George Sand</persName>.</a:example> Auteur référencé : <a:example><note>Le
+                  merveilleux <bibl><title>Cyrano</title> de <author
+                      ref="http://www.idref.fr/027109860">M. Edmond Rostand</author></bibl> est venu
+                  confirmer cette hypothèse. (NdA)</note></a:example>
+            </li>
           </ul>
         </div>
         <ref name="xml-atts"/>
@@ -2452,8 +2758,10 @@
       <element name="placeName">
         <a:documentation>Nom de lieu</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Comme les noms de personnes, le balisage des noms de lieux peut avoir plusieurs objectifs.</p>
-          <p>Objectif linguistique : inclure une expression remplaçable par ici où là : <a:el><placeName>rue <persName>Léon Trulin</persName></placeName></a:el></p>
+          <p>Comme les noms de personnes, le balisage des noms de lieux peut avoir plusieurs
+            objectifs.</p>
+          <p>Objectif linguistique : inclure une expression remplaçable par ici où là :
+                <a:el><placeName>rue <persName>Léon Trulin</persName></placeName></a:el></p>
         </div>
         <ref name="index-atts"/>
         <ref name="xml-atts"/>
@@ -2472,8 +2780,10 @@
       <element name="rs">
         <a:documentation>Référence à une entité</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Comme les noms de personnes, le balisage des noms de lieux peut avoir plusieurs objectifs.</p>
-          <p>Objectif linguistique : inclure une expression remplaçable par ici où là : <a:el><placeName>rue <persName>Léon Trulin</persName></placeName></a:el></p>
+          <p>Comme les noms de personnes, le balisage des noms de lieux peut avoir plusieurs
+            objectifs.</p>
+          <p>Objectif linguistique : inclure une expression remplaçable par ici où là :
+                <a:el><placeName>rue <persName>Léon Trulin</persName></placeName></a:el></p>
         </div>
         <ref name="index-atts"/>
         <ref name="xml-atts"/>
@@ -2548,15 +2858,20 @@
           <attribute name="level">
             <choice>
               <value>a</value>
-              <a:documentation>(analytic) titre analytique, partie d'un ensemble plus grand, par exemple un article, un poème…</a:documentation>
+              <a:documentation>(analytic) titre analytique, partie d'un ensemble plus grand, par
+                exemple un article, un poème…</a:documentation>
               <value>m</value>
-              <a:documentation>(monographic) titre de monographie, comme un livre, un recueil ou autre item publié séparément</a:documentation>
+              <a:documentation>(monographic) titre de monographie, comme un livre, un recueil ou
+                autre item publié séparément</a:documentation>
               <value>j</value>
               <a:documentation>(journal) titre de revue ou de périodique</a:documentation>
               <value>s</value>
-              <a:documentation>(serial) titre de collection ou autre publication en série</a:documentation>
+              <a:documentation>(serial) titre de collection ou autre publication en
+                série</a:documentation>
               <value>u</value>
-              <a:documentation>(unpublished) titre de matériau non publié, par exemple des thèses, des dissertations, si elles n'ont pas été publiées par un éditeur commercial</a:documentation>
+              <a:documentation>(unpublished) titre de matériau non publié, par exemple des thèses,
+                des dissertations, si elles n'ont pas été publiées par un éditeur
+                commercial</a:documentation>
             </choice>
           </attribute>
         </optional>
@@ -2592,8 +2907,10 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>L’indexation d’un texte peut se faire de deux manières :</p>
       <ol>
-        <li>Par le regroupement automatique des clés inscrites pour l’identification de chacun des segments indexés.</li>
-        <li>En liant les segments indexés aux entrées correspondantes définies dans une ressource prédéfinie (lexique, référentiel d’autorités), pour les désambiguïser.</li>
+        <li>Par le regroupement automatique des clés inscrites pour l’identification de chacun des
+          segments indexés.</li>
+        <li>En liant les segments indexés aux entrées correspondantes définies dans une ressource
+          prédéfinie (lexique, référentiel d’autorités), pour les désambiguïser.</li>
       </ol>
       <p>Le jeu d’attributs défini pour l’indexation prévoit ces deux cas de figure.</p>
     </div>
@@ -2602,12 +2919,19 @@
       <div xmlns="http://www.w3.org/1999/xhtml">
         <p>Une entité indexée peut être identifiée par (du plus vague au plus précis) :</p>
         <ul>
-          <li><a:att>key</a:att> – à minima une clé, utile au regroupement des entrées pour générer automatiquement un index ;</li>
-          <li><a:att>corresp</a:att> – un pointeur vers l’ID défini dans une liste d’autorité, inscrite dans le fichier même (<a:el>back</a:el>) ou dans un fichier déporté ;</li>
+          <li><a:att>key</a:att> – à minima une clé, utile au regroupement des entrées pour générer
+            automatiquement un index ;</li>
+          <li><a:att>corresp</a:att> – un pointeur vers l’ID défini dans une liste d’autorité,
+            inscrite dans le fichier même (<a:el>back</a:el>) ou dans un fichier déporté ;</li>
           <li><a:att>ref</a:att> – idéalement une URI identifiant l’entité indexée.</li>
         </ul>
-        <p>On conserve la possibilité de renseigner conjointement les attributs <a:att>ref</a:att> et <a:att>corresp</a:att> pour lier l’entité indexée à la fois à un référentiel partagé (type <a href="http://www.idref.fr/autorites/autorites.html" taget="abes">idRef</a>) et à un référentiel plus spécifique (un fichier XML/TEI), dédié au projet scientifique.</p>
-        <p>La maîtrise de l’attribution de ce jeu d’attributs aux justes éléments indexables est essentiel, de manière à éviter tout risque d’indexation redondante (par ex. persName > name|forname|surname, etc.).</p>
+        <p>On conserve la possibilité de renseigner conjointement les attributs <a:att>ref</a:att>
+          et <a:att>corresp</a:att> pour lier l’entité indexée à la fois à un référentiel partagé
+          (type <a href="http://www.idref.fr/autorites/autorites.html" taget="abes">idRef</a>) et à
+          un référentiel plus spécifique (un fichier XML/TEI), dédié au projet scientifique.</p>
+        <p>La maîtrise de l’attribution de ce jeu d’attributs aux justes éléments indexables est
+          essentiel, de manière à éviter tout risque d’indexation redondante (par ex. persName >
+          name|forname|surname, etc.).</p>
       </div>
       <optional>
         <ref name="cert-att"/>
@@ -2633,11 +2957,29 @@
     </define>
     <define name="term">
       <element name="term">
-        <a:documentation>Terme (mot ou expression), &lt;html5:dfn> (terme défini, “defining instance of a term”)</a:documentation>
+        <a:documentation>Terme (mot ou expression), &lt;html5:dfn> (terme défini, “defining instance
+          of a term”)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Il est très utile de pouvoir récupérer l’indexation saisie par un chercheur dans un fichier de traitement de texte. Une chaîne de caractères indexée dans un index lexical se caractérise par une "entrée" normalisée (qui peut différer de la chaîne de caractères sélectionnée) et deux clés optionnelles ("clé1" et "clé2") qui permettent de regrouper hiérarchiquement les entrées. Un tel index lexical est généré grâce au regroupement automatique des entrées insérées dans le fichier. L’interprétation sémantique faite ici de l’élément <a:el>term</a:el> est un peu limite au regard des <i>Guidelines</i> mais se justifie par sa simplicité (pas d’élément parent <a:el>index</a:el>) et la disponibilité du jeu d’attribut <a href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.typed.html">att.typed</a> utile à l’expression des clés 1 et 2.</p>
-          <p>Cet usage de <a:el>term</a:el> est conçu pour la conversion automatique d’un index lexical ODT. Il serait à rapporter au 3<sup>e</sup> niveau d’encodage défini par les <i><a href="http://purl.oclc.org/NET/teiinlibraries">Best Practices for TEI in Libraries</a></i>, à savoir un fichier XML/TEI issu d’une conversion OCR. Un tel encodage doit ensuite être précisé de manière à désambiguïser les entités indexées (<a:el>persName</a:el>, <a:el>placeName</a:el>, etc.).</p>
-          <p><a:el>term</a:el> sert aussi au repérage sémantique de notions au fil du texte, parfois mises en valeur par l’auteur lui-même. Cette mise en valeur typographique est inscrite en valeur de <a:att>rend</a:att>.</p>
+          <p>Il est très utile de pouvoir récupérer l’indexation saisie par un chercheur dans un
+            fichier de traitement de texte. Une chaîne de caractères indexée dans un index lexical
+            se caractérise par une "entrée" normalisée (qui peut différer de la chaîne de caractères
+            sélectionnée) et deux clés optionnelles ("clé1" et "clé2") qui permettent de regrouper
+            hiérarchiquement les entrées. Un tel index lexical est généré grâce au regroupement
+            automatique des entrées insérées dans le fichier. L’interprétation sémantique faite ici
+            de l’élément <a:el>term</a:el> est un peu limite au regard des <i>Guidelines</i> mais se
+            justifie par sa simplicité (pas d’élément parent <a:el>index</a:el>) et la disponibilité
+            du jeu d’attribut <a
+              href="http://www.tei-c.org/release/doc/tei-p5-doc/fr/html/ref-att.typed.html"
+              >att.typed</a> utile à l’expression des clés 1 et 2.</p>
+          <p>Cet usage de <a:el>term</a:el> est conçu pour la conversion automatique d’un index
+            lexical ODT. Il serait à rapporter au 3<sup>e</sup> niveau d’encodage défini par les
+                <i><a href="http://purl.oclc.org/NET/teiinlibraries">Best Practices for TEI in
+                Libraries</a></i>, à savoir un fichier XML/TEI issu d’une conversion OCR. Un tel
+            encodage doit ensuite être précisé de manière à désambiguïser les entités indexées
+              (<a:el>persName</a:el>, <a:el>placeName</a:el>, etc.).</p>
+          <p><a:el>term</a:el> sert aussi au repérage sémantique de notions au fil du texte, parfois
+            mises en valeur par l’auteur lui-même. Cette mise en valeur typographique est inscrite
+            en valeur de <a:att>rend</a:att>.</p>
         </div>
         <ref name="index-atts">
           <a:documentation>Contraindre @key pour l’entrée d’index ODT</a:documentation>
@@ -2673,11 +3015,31 @@
   </div>
   <div id="text" xmlns="http://www.w3.org/1999/xhtml">
     <h2>Texte</h2>
-    <p>Idéalement, tous les caractères du texte imprimé, de toutes les pages, doivent être inscrits comme des nœuds de texte. Cette attitude conservatoire évite de présumer des intérêts futurs de la recherche. La seule réserve concerne les navigations ajoutées par l’éditeur (table des matières, index) que l’on essaiera autant que possible de générer automatiquement par la structure XML.</p>
-    <p><b>Entités</b> — Flux de caractères UTF-8. Toujours préférer un caractère unicode UTF-8 lorsque possible. Pas d'entités, car soit elles sont en chiffres, et elles correspondent à un caractère unicode, soit elles sont en lettres, et elles ne sont pas supportées par xml sans déclaration DTD <s><code>&amp;nbsp;, &amp;thinsp;, &amp;eacute;…</code></s> Exemple : pour une espace insécable inscrire le caractère ' ' (U+00A0, &amp;#160;), visible ici comme une espace mais distinguable dans certains éditeurs, de même pour les espaces fines ' ' ( U+2009, &amp;#8201;). Si des caractères rencontrés ne correspondent pas de façon exacte à un code unicode standard, alors utiliser <a:el>g n="{code local pour le caractère}">{approximation unicode}&lt;/g</a:el></p>
+    <p>Idéalement, tous les caractères du texte imprimé, de toutes les pages, doivent être inscrits
+      comme des nœuds de texte. Cette attitude conservatoire évite de présumer des intérêts futurs
+      de la recherche. La seule réserve concerne les navigations ajoutées par l’éditeur (table des
+      matières, index) que l’on essaiera autant que possible de générer automatiquement par la
+      structure XML.</p>
+    <p><b>Entités</b> — Flux de caractères UTF-8. Toujours préférer un caractère unicode UTF-8
+      lorsque possible. Pas d'entités, car soit elles sont en chiffres, et elles correspondent à un
+      caractère unicode, soit elles sont en lettres, et elles ne sont pas supportées par xml sans
+      déclaration DTD <s><code>&amp;nbsp;, &amp;thinsp;, &amp;eacute;…</code></s> Exemple : pour une
+      espace insécable inscrire le caractère ' ' (U+00A0, &amp;#160;), visible ici comme une espace
+      mais distinguable dans certains éditeurs, de même pour les espaces fines ' ' ( U+2009,
+      &amp;#8201;). Si des caractères rencontrés ne correspondent pas de façon exacte à un code
+      unicode standard, alors utiliser <a:el>g n="{code local pour le caractère}">{approximation
+        unicode}&lt;/g</a:el></p>
     <!-- p><b>Grec ancien</b> — lettres à pb</p -->
-    <p><b>Guillemets</b> — Autant que possible, on évitera les <s>"guillemets droits"</s>, afin de favoriser les guillemets orientés, qui s'ouvrent et se ferment pour délimiter un segment, en distinguant les « guillemets français » et les “guillemets anglais”. Les guillemets français encadrent généralement du texte cité ou rapporté, d'un autre auteur que le texte environnant, et sont susceptibles (sous contrôle humain) d'être encadrés pas la balise <a:el>quote</a:el>. Les guillemets anglais encadrent généralement des segments plus courts, qui pourraient aussi paraître en italique : terme technique <a:el>term</a:el>, langue étrangère <a:el>foreign</a:el>, mot en mention <a:el>mentionned</a:el>…</p>
-    <p><b>Apostrophes</b> — Autant que possible, éviter les <s>'apostrophes droites'</s>, pour privilégier l’apostrophe courbe et orientée.</p>
+    <p><b>Guillemets</b> — Autant que possible, on évitera les <s>"guillemets droits"</s>, afin de
+      favoriser les guillemets orientés, qui s'ouvrent et se ferment pour délimiter un segment, en
+      distinguant les « guillemets français » et les “guillemets anglais”. Les guillemets français
+      encadrent généralement du texte cité ou rapporté, d'un autre auteur que le texte environnant,
+      et sont susceptibles (sous contrôle humain) d'être encadrés pas la balise <a:el>quote</a:el>.
+      Les guillemets anglais encadrent généralement des segments plus courts, qui pourraient aussi
+      paraître en italique : terme technique <a:el>term</a:el>, langue étrangère
+        <a:el>foreign</a:el>, mot en mention <a:el>mentionned</a:el>…</p>
+    <p><b>Apostrophes</b> — Autant que possible, éviter les <s>'apostrophes droites'</s>, pour
+      privilégier l’apostrophe courbe et orientée.</p>
     <!-- 
 Zero width space: x​x​x​x​x​x​x​x​x​x
 
@@ -2685,7 +3047,8 @@ Word joiner (Zero width no-break space): x⁠x⁠x⁠x⁠x⁠x⁠x⁠x⁠x⁠x
 
 Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
 -->
-    <p>Caractères mal supportés par certaines polices ou clients, que l'on peut cependant conserver tel quel dans la source XML, sans entité ni transcodage.</p>
+    <p>Caractères mal supportés par certaines polices ou clients, que l'on peut cependant conserver
+      tel quel dans la source XML, sans entité ni transcodage.</p>
     <ul>
       <li>espace normale &amp;#32; : x x x</li>
       <li>espace insécable &amp;#160; (html:nbsp) : x x x</li>
@@ -2703,7 +3066,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
   <div xml:id="point">
     <a:documentation>Points</a:documentation>
     <define name="point">
-      <a:documentation>Balises hors du flux textuel principal (saut de page ou de ligne, notes...)</a:documentation>
+      <a:documentation>Balises hors du flux textuel principal (saut de page ou de ligne,
+        notes...)</a:documentation>
       <div xmlns="http://www.w3.org/1999/xhtml">
         <a:example href="teibook.xml#point"/>
       </div>
@@ -2722,7 +3086,10 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="anchor">
       <element name="anchor">
-        <a:documentation>Une ancre, lorsqu’un point (et non un segment) identifiant est requis. Exemple : destination d’un lien. Pour identifier un segment (et non un point), renseigner l’attribut @xml:id de l'élément conteneur (section &lt;div> ; bloc &lt;p>, &lt;list>… ; segment &lt;term>…)</a:documentation>
+        <a:documentation>Une ancre, lorsqu’un point (et non un segment) identifiant est requis.
+          Exemple : destination d’un lien. Pour identifier un segment (et non un point), renseigner
+          l’attribut @xml:id de l'élément conteneur (section &lt;div> ; bloc &lt;p>, &lt;list>… ;
+          segment &lt;term>…)</a:documentation>
         <!-- is optional because of a problem in rng2xsd conversion -->
         <ref name="xml-atts"/>
       </element>
@@ -2731,7 +3098,11 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       <element name="cb">
         <a:documentation>Saut de colonne</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Conservation des sauts de colonne de l’édition imprimée. Un tel numéro est nécessaire pour le référencement des citations des textes imprimés en colonnes (un dictionnaire par exemple). Par convention, on accole le numéro de page à la lettre de colonne pour constituer une référence de colonne unique par ouvrage. Par exemple 245c pour la troisième colonne de la page 245.</p>
+          <p>Conservation des sauts de colonne de l’édition imprimée. Un tel numéro est nécessaire
+            pour le référencement des citations des textes imprimés en colonnes (un dictionnaire par
+            exemple). Par convention, on accole le numéro de page à la lettre de colonne pour
+            constituer une référence de colonne unique par ouvrage. Par exemple 245c pour la
+            troisième colonne de la page 245.</p>
         </div>
         <empty/>
         <ref name="n-att"/>
@@ -2739,18 +3110,25 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="ed">
       <attribute name="ed">
-        <a:documentation>Sigle permettant d'identifier l’édition d’origine d’une numérotation (de page, folio, colonne, ligne…)</a:documentation>
+        <a:documentation>Sigle permettant d'identifier l’édition d’origine d’une numérotation (de
+          page, folio, colonne, ligne…)</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Idéalement, un tel sigle est défini par l’éditeur (date d’une édition imprimée, lettre dans le stemma d’un manuscrit…). Il est indispensable de choisir une clé cohérente dans tout le texte lorsque plusieurs numérotations concurrentes cohabitent.</p>
-          <p>Lors d’une numérisation, on peut choisir d’adopter provisoirement un code qui décrit l’apparence physique du numéro (mise en valeur typographique), et laisser l’interprétation à un éditeur électronique postérieur.</p>
+          <p>Idéalement, un tel sigle est défini par l’éditeur (date d’une édition imprimée, lettre
+            dans le stemma d’un manuscrit…). Il est indispensable de choisir une clé cohérente dans
+            tout le texte lorsque plusieurs numérotations concurrentes cohabitent.</p>
+          <p>Lors d’une numérisation, on peut choisir d’adopter provisoirement un code qui décrit
+            l’apparence physique du numéro (mise en valeur typographique), et laisser
+            l’interprétation à un éditeur électronique postérieur.</p>
         </div>
         <choice>
           <value>margin</value>
           <a:documentation>Numéro dans la marge</a:documentation>
           <value>marginBig</value>
-          <a:documentation>Numéro dans la marge, plus grand (relativement à un autre)</a:documentation>
+          <a:documentation>Numéro dans la marge, plus grand (relativement à un
+            autre)</a:documentation>
           <value>marginBold</value>
-          <a:documentation>Numéro dans la marge, en gras (relativement à un autre qui serait maigre)</a:documentation>
+          <a:documentation>Numéro dans la marge, en gras (relativement à un autre qui serait
+            maigre)</a:documentation>
           <value>[]</value>
           <a:documentation>Numéro entre crochets</a:documentation>
           <value>()</value>
@@ -2761,7 +3139,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="fw">
       <element name="fw">
-        <a:documentation>Mentions hors teneur (titre courant, numéro de page, tampon…)</a:documentation>
+        <a:documentation>Mentions hors teneur (titre courant, numéro de page,
+          tampon…)</a:documentation>
         <optional>
           <attribute name="type">
             <choice>
@@ -2770,9 +3149,11 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
               <value>footer</value>
               <a:documentation>un titre courant en bas de la page</a:documentation>
               <value>pageNum</value>
-              <a:documentation>(numéro de page) numéro de page ou symbole de foliotation</a:documentation>
+              <a:documentation>(numéro de page) numéro de page ou symbole de
+                foliotation</a:documentation>
               <value>lineNum</value>
-              <a:documentation>(numéro de ligne) numéro d'une ligne en prose ou en vers</a:documentation>
+              <a:documentation>(numéro de ligne) numéro d'une ligne en prose ou en
+                vers</a:documentation>
               <value>sig</value>
               <a:documentation>(signature) signature ou marque de cahier</a:documentation>
               <value>catch</value>
@@ -2823,10 +3204,22 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     <define name="lb">
       <element name="lb">
         <a:documentation>Saut de ligne “line break” &lt;html5:br/&gt;</a:documentation>
-        <div xmlns="http://www.w3.org/1999/xhtml"> (<i>line break</i>)
-          <p><a:el>lb</a:el> peut être utilisé pour forcer un saut de ligne, par exemple dans un titre.</p>
-          <p>Dans le cas d’un texte avec lignes numérotées qui ne sont pas des vers inclus dans un élément <a:el>l</a:el>, les numéros sont utiles au référencement des citations des notes d’apparat critique. Il est donc nécessaire de conserver tous les sauts de lignes dans le flux du texte, et d’inscrire le numéro — quand il est imprimé — dans l’attribut <a:att>n</a:att>. <b>Attention</b> : certaines éditions alternent l’emplacement du numéro de ligne selon les pages paires ou impaires (marges intérieures ou extérieures). Conformément à la spécification TEI, le numéro inscrit doit toujours se rapporter à ce qui suit. Les césures sont traitées comme pour le reste du texte. Une édition électronique de référence doit proposer une exploitation de ces sauts de ligne pour garantir une citabilité de qualité égale à la version imprimée. Si plusieurs numérotations concurrentes des lignes sont conservées, elles sont distinguées par l’attribut <a:att>ed</a:att>.</p>
-          <a:example href="teibook.xml#lb"/> </div>
+        <div xmlns="http://www.w3.org/1999/xhtml"> (<i>line break</i>) <p><a:el>lb</a:el> peut être
+            utilisé pour forcer un saut de ligne, par exemple dans un titre.</p>
+          <p>Dans le cas d’un texte avec lignes numérotées qui ne sont pas des vers inclus dans un
+            élément <a:el>l</a:el>, les numéros sont utiles au référencement des citations des notes
+            d’apparat critique. Il est donc nécessaire de conserver tous les sauts de lignes dans le
+            flux du texte, et d’inscrire le numéro — quand il est imprimé — dans l’attribut
+              <a:att>n</a:att>. <b>Attention</b> : certaines éditions alternent l’emplacement du
+            numéro de ligne selon les pages paires ou impaires (marges intérieures ou extérieures).
+            Conformément à la spécification TEI, le numéro inscrit doit toujours se rapporter à ce
+            qui suit. Les césures sont traitées comme pour le reste du texte. Une édition
+            électronique de référence doit proposer une exploitation de ces sauts de ligne pour
+            garantir une citabilité de qualité égale à la version imprimée. Si plusieurs
+            numérotations concurrentes des lignes sont conservées, elles sont distinguées par
+            l’attribut <a:att>ed</a:att>.</p>
+          <a:example href="teibook.xml#lb"/>
+        </div>
         <optional>
           <ref name="n-att"/>
         </optional>
@@ -2850,7 +3243,9 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="milestone">
       <element name="milestone">
-        <a:documentation>Borne anonyme, vide, permet d’étiqueter des points qui n’entrent pas dans la hiérarchie éditoriale, et qui ne sont pas des sauts de page <a:el>pb</a:el>, de colonne <a:el>cb</a:el> ou de ligne <a:el>lb</a:el></a:documentation>
+        <a:documentation>Borne anonyme, vide, permet d’étiqueter des points qui n’entrent pas dans
+          la hiérarchie éditoriale, et qui ne sont pas des sauts de page <a:el>pb</a:el>, de colonne
+            <a:el>cb</a:el> ou de ligne <a:el>lb</a:el></a:documentation>
         <empty/>
         <optional>
           <attribute name="unit">
@@ -2866,7 +3261,7 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
         <optional>
           <choice>
             <ref name="corresp"/>
-            <ref name="xml.id"/>            
+            <ref name="xml.id"/>
           </choice>
         </optional>
         <optional>
@@ -2876,10 +3271,21 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="note">
       <element name="note">
-        <a:documentation>Une note, encodée dans le flux du texte, au point de l’appel.</a:documentation>
+        <a:documentation>Une note, encodée dans le flux du texte, au point de
+          l’appel.</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Une note ne contient que du texte riche, ou que des blocs (le mélange texte avec blocs n'est pas autorisé).</p>
-          <p>Le numéro ou la lettre d’appel dans le texte original est contenu dans l’attribut <a:att>n</a:att>. Si la note ne comporte pas d'attribut <a:att>n</a:att>, elle apparaît dans le flux, mais le bloc est considéré comme relevant d'un autre statut que le texte environnant. Lorsque plusieurs types de notes cohabitent (hors apparat critique <a:el>app</a:el>), chaque type doit pouvoir être distingué, afin notamment de pouvoir filtrer les notes pour certains exports (ex : texte hors droit à destination de la recherche, avec les notes de l’auteur hors droit, sans les notes de l’éditeur encore sous droits d’auteur). Le responsable d’une note sera alors précisé dans l’attribut <a:att>resp</a:att>. Il est aussi possible de distinguer les notes par leur présentation typographique <a:att>rend</a:att>.</p>
+          <p>Une note ne contient que du texte riche, ou que des blocs (le mélange texte avec blocs
+            n'est pas autorisé).</p>
+          <p>Le numéro ou la lettre d’appel dans le texte original est contenu dans l’attribut
+              <a:att>n</a:att>. Si la note ne comporte pas d'attribut <a:att>n</a:att>, elle
+            apparaît dans le flux, mais le bloc est considéré comme relevant d'un autre statut que
+            le texte environnant. Lorsque plusieurs types de notes cohabitent (hors apparat critique
+              <a:el>app</a:el>), chaque type doit pouvoir être distingué, afin notamment de pouvoir
+            filtrer les notes pour certains exports (ex : texte hors droit à destination de la
+            recherche, avec les notes de l’auteur hors droit, sans les notes de l’éditeur encore
+            sous droits d’auteur). Le responsable d’une note sera alors précisé dans l’attribut
+              <a:att>resp</a:att>. Il est aussi possible de distinguer les notes par leur
+            présentation typographique <a:att>rend</a:att>.</p>
         </div>
         <ref name="xml-atts"/>
         <optional>
@@ -2924,12 +3330,27 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       <element name="pb">
         <a:documentation>Saut de page “page break”</a:documentation>
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <p>Le saut de page permet de conserver un lien avec une ou plusieurs éditions imprimées de référence.</p>
-          <p>Le numéro de page imprimé est inscrit dans l’attribut <a:att>n</a:att>. Ce numéro se rapporte à la page qui suit, la balise <a:el>pb</a:el> étant placée en début de page. Il est conseillé d’enregistrer tous les sauts de pages, même les pages blanches non numérotées.</p>
-          <p>Un lien à une image de la page numérisée peut être inscrit dans l’attribut <a:att>facs</a:att>. Quelle que soit la convention de nommage adoptée par le numériseur, ce nom de fichier doit être unique ; il est inutile de préciser les chemins relatifs qui varient selon les contextes applicatifs. L’attribut xml:id est utilisé comme ancre de destination pour les renvois à une page.</p>
-          <p>En cas de note interrompue par un saut de page, il est déconseiller d’indiquer le saut de page à cet endroit, un saut de page doit être unique, et dans le flux de texte principal.</p>
-          <p>Pour une édition de source, lorsque la foliotation de l’original est conservée, utiliser le même élément mais en précisant le sigle du témoin dans l’attribut <a:att>ed</a:att> dont provient le n° de folio (dans ce cas, titre courant et fichier image ne sont pas requis).</p>
-          <p>Lorsqu’un saut de page coupe un mot dans l’édition imprimée, on conseillera de résoudre la césure, et de placer le saut de page après le mot non coupé + une espace (une page ne doit jamais commencer par une espace).</p>
+          <p>Le saut de page permet de conserver un lien avec une ou plusieurs éditions imprimées de
+            référence.</p>
+          <p>Le numéro de page imprimé est inscrit dans l’attribut <a:att>n</a:att>. Ce numéro se
+            rapporte à la page qui suit, la balise <a:el>pb</a:el> étant placée en début de page. Il
+            est conseillé d’enregistrer tous les sauts de pages, même les pages blanches non
+            numérotées.</p>
+          <p>Un lien à une image de la page numérisée peut être inscrit dans l’attribut
+              <a:att>facs</a:att>. Quelle que soit la convention de nommage adoptée par le
+            numériseur, ce nom de fichier doit être unique ; il est inutile de préciser les chemins
+            relatifs qui varient selon les contextes applicatifs. L’attribut xml:id est utilisé
+            comme ancre de destination pour les renvois à une page.</p>
+          <p>En cas de note interrompue par un saut de page, il est déconseiller d’indiquer le saut
+            de page à cet endroit, un saut de page doit être unique, et dans le flux de texte
+            principal.</p>
+          <p>Pour une édition de source, lorsque la foliotation de l’original est conservée,
+            utiliser le même élément mais en précisant le sigle du témoin dans l’attribut
+              <a:att>ed</a:att> dont provient le n° de folio (dans ce cas, titre courant et fichier
+            image ne sont pas requis).</p>
+          <p>Lorsqu’un saut de page coupe un mot dans l’édition imprimée, on conseillera de résoudre
+            la césure, et de placer le saut de page après le mot non coupé + une espace (une page ne
+            doit jamais commencer par une espace).</p>
         </div>
         <optional>
           <ref name="n-att"/>
@@ -2951,7 +3372,6 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
         <a:documentation>Mot clé indiquant une analyse, une interprétation.</a:documentation>
       </attribute>
     </define>
-    
     <define name="corresp">
       <attribute name="corresp">
         <a:documentation>Pointeur vers une ressource liée</a:documentation>
@@ -2962,7 +3382,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="copyOf">
       <attribute name="copyOf">
-        <a:documentation>Lien de copie (non directionnel) entre l’élément porteur de l’attribut et un fichier ou un fragment de fichier pointé par une url.</a:documentation>
+        <a:documentation>Lien de copie (non directionnel) entre l’élément porteur de l’attribut et
+          un fichier ou un fragment de fichier pointé par une url.</a:documentation>
         <list>
           <data type="anyURI"/>
         </list>
@@ -2976,7 +3397,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="key-att">
       <attribute name="key">
-        <a:documentation>Terme normalisé (clé de regroupement) pour une entité indexable (auteur, titre, personne, lieu…)</a:documentation>
+        <a:documentation>Terme normalisé (clé de regroupement) pour une entité indexable (auteur,
+          titre, personne, lieu…)</a:documentation>
       </attribute>
     </define>
     <define name="facs-att">
@@ -3001,14 +3423,17 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="quantity-att">
       <attribute name="quantity">
-        <a:documentation>Quantité en chiffre décimaux se rapportant à une information</a:documentation>
+        <a:documentation>Quantité en chiffre décimaux se rapportant à une
+          information</a:documentation>
       </attribute>
     </define>
     <define name="evidence-att">
       <attribute name="evidence">
-        <a:documentation>Nature de la preuve attestant la justesse de l'interprétation</a:documentation>
+        <a:documentation>Nature de la preuve attestant la justesse de
+          l'interprétation</a:documentation>
         <value>conjecture</value>
-        <a:documentation>Interprétation faite par l’annotateur sur la base de son expertise</a:documentation>
+        <a:documentation>Interprétation faite par l’annotateur sur la base de son
+          expertise</a:documentation>
         <!-- NB: d’autres valeurs autorisées sont documentées -->
       </attribute>
     </define>
@@ -3050,9 +3475,11 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
           <value>inline</value>
           <a:documentation>dans le corps du texte</a:documentation>
           <value>inspace</value>
-          <a:documentation>dans un espace prédéfini, par exemple à gauche d'un scripteur précédent</a:documentation>
+          <a:documentation>dans un espace prédéfini, par exemple à gauche d'un scripteur
+            précédent</a:documentation>
           <value>margin</value>
-          <a:documentation>dans la marge (gauche, droite ou les deux en même temps)</a:documentation>
+          <a:documentation>dans la marge (gauche, droite ou les deux en même
+            temps)</a:documentation>
           <value>oppposite</value>
           <a:documentation>sur la page opposée, c'est-à-dire en regard</a:documentation>
           <value>overleaf</value>
@@ -3065,7 +3492,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="ref-att">
       <attribute name="ref">
-        <a:documentation>URI de référence pour un terme indexable : auteur, titre, personne, lieu…</a:documentation>
+        <a:documentation>URI de référence pour un terme indexable : auteur, titre, personne,
+          lieu…</a:documentation>
         <data type="anyURI"/>
       </attribute>
     </define>
@@ -3077,7 +3505,10 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="rend-att">
       <attribute name="rend">
-        <a:documentation>Indication de rendu, selon un vocabulaire contrôlé. Interprété comme une liste de classes CSS comme dans l'attribut @html5:class. Conserve une information de la source, ou suggère une présentation. À distinguer de la précision sémantique de l’élément, indiquée avec l’attribut @type</a:documentation>
+        <a:documentation>Indication de rendu, selon un vocabulaire contrôlé. Interprété comme une
+          liste de classes CSS comme dans l'attribut @html5:class. Conserve une information de la
+          source, ou suggère une présentation. À distinguer de la précision sémantique de l’élément,
+          indiquée avec l’attribut @type</a:documentation>
       </attribute>
     </define>
     <define name="resp-att">
@@ -3090,14 +3521,17 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
           <value>translator</value>
           <a:documentation>note du traducteur</a:documentation>
           <value>©</value>
-          <a:documentation>note protégée par le droit d’auteur au moment de l’écriture du fichier</a:documentation>
+          <a:documentation>note protégée par le droit d’auteur au moment de l’écriture du
+            fichier</a:documentation>
           <text/>
         </choice>
       </attribute>
     </define>
     <define name="type-att">
       <attribute name="type">
-        <a:documentation>Type, qualifiant l’élément parent, indépendamment de son apparence. Dans la mesure du possible, une liste d’autorité contextuelle sera proposée au niveau de l’élément.</a:documentation>
+        <a:documentation>Type, qualifiant l’élément parent, indépendamment de son apparence. Dans la
+          mesure du possible, une liste d’autorité contextuelle sera proposée au niveau de
+          l’élément.</a:documentation>
       </attribute>
     </define>
     <define name="xml-atts">
@@ -3113,8 +3547,13 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="rend.list">
       <attribute name="rend">
-        <a:documentation>Type de liste, indiqué par un caractère, ou une valeur CSS standard</a:documentation>
-        <div xmlns="http://www.w3.org/1999/xhtml"><a href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style-type">[CSS]</a>. Le nombre de valeurs est susceptible de s’étendre. En cas d’encodage de texte existant, si la numérotation est difficile à générer automatiquement, il peut être plus commode de la reporter en valeur d’attribut de l’item <a:att>n</a:att>.</div>
+        <a:documentation>Type de liste, indiqué par un caractère, ou une valeur CSS
+          standard</a:documentation>
+        <div xmlns="http://www.w3.org/1999/xhtml"><a
+            href="http://www.w3.org/TR/CSS21/generate.html#propdef-list-style-type">[CSS]</a>. Le
+          nombre de valeurs est susceptible de s’étendre. En cas d’encodage de texte existant, si la
+          numérotation est difficile à générer automatiquement, il peut être plus commode de la
+          reporter en valeur d’attribut de l’item <a:att>n</a:att>.</div>
         <choice>
           <value>disc</value>
           <a:documentation>disque</a:documentation>
@@ -3156,7 +3595,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       </optional>
     </define>
     <define name="rendering.figure">
-      <a:documentation>Information de rendu pour un conteneur de blocs, concerne notamment la possibilité d'encadrer plusieurs paragraphes.</a:documentation>
+      <a:documentation>Information de rendu pour un conteneur de blocs, concerne notamment la
+        possibilité d'encadrer plusieurs paragraphes.</a:documentation>
       <optional>
         <attribute name="rend">
           <list>
@@ -3174,7 +3614,9 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       </optional>
     </define>
     <define name="rendering.block">
-      <a:documentation>Information de rendu pour un bloc, combine des rendus de niveau caractère et de niveau bloc avec possibilité de classe personnalisé comme une liste de tokens séparés d'espaces.</a:documentation>
+      <a:documentation>Information de rendu pour un bloc, combine des rendus de niveau caractère et
+        de niveau bloc avec possibilité de classe personnalisé comme une liste de tokens séparés
+        d'espaces.</a:documentation>
       <optional>
         <attribute name="rend">
           <list>
@@ -3184,19 +3626,24 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
                 <ref name="rend.align"/>
                 <ref name="rend.lmarg"/>
                 <value>argument</value>
-                <a:documentation>Valeur sémantique d’un élément argument, mais qui autorise à placer un élément &lt;stage&gt; avant (édition de théâtre)</a:documentation>
+                <a:documentation>Valeur sémantique d’un élément argument, mais qui autorise à placer
+                  un élément &lt;stage&gt; avant (édition de théâtre)</a:documentation>
                 <value>indent</value>
-                <a:documentation>Indentation de première ligne (lorsque pas d’indentation par défaut)</a:documentation>
+                <a:documentation>Indentation de première ligne (lorsque pas d’indentation par
+                  défaut)</a:documentation>
                 <value>lg</value>
                 <a:documentation>Utile provisoirement, mais lg/l est préférable.</a:documentation>
                 <value>noindent</value>
-                <a:documentation>Pas d’indentation de première ligne (lorsque indentation par défaut)</a:documentation>
+                <a:documentation>Pas d’indentation de première ligne (lorsque indentation par
+                  défaut)</a:documentation>
                 <!-- Essayer de bloquer ? Et laisser rendition pour personnaliser
               <data type="token"/>
               -->
                 <!--  -->
                 <value>pre</value>
-                <a:documentation>Bloc préformaté, conserver les espaces et sauts de ligne, police à chasse fixe. Pour des exemples de codes, préférer @lt;eg>. @rend='pre' peut servir à rendre des formules mathématiques.</a:documentation>
+                <a:documentation>Bloc préformaté, conserver les espaces et sauts de ligne, police à
+                  chasse fixe. Pour des exemples de codes, préférer @lt;eg>. @rend='pre' peut servir
+                  à rendre des formules mathématiques.</a:documentation>
               </choice>
             </oneOrMore>
           </list>
@@ -3207,7 +3654,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       </optional>
     </define>
     <define name="rendering.char">
-      <a:documentation>Information de rendu pour un segment de caractères, liste fermée de tokens séparés d’espaces.</a:documentation>
+      <a:documentation>Information de rendu pour un segment de caractères, liste fermée de tokens
+        séparés d’espaces.</a:documentation>
       <optional>
         <attribute name="rend">
           <list>
@@ -3221,7 +3669,10 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     </define>
     <define name="rendition-att">
       <attribute name="rendition">
-        <a:documentation>Lien à une déclaration locale de stylage (URI ancre, ex : #surtitre, vers une déclaration &lt;rendition xml:id="surtitre"> dans &lt;teiHeader>). L'attribut @rend est contraint dans ce schéma à une liste close de valeurs dont le traitement est garanti, @rendition permet d'ajouter d’autres classes</a:documentation>
+        <a:documentation>Lien à une déclaration locale de stylage (URI ancre, ex : #surtitre, vers
+          une déclaration &lt;rendition xml:id="surtitre"> dans &lt;teiHeader>). L'attribut @rend
+          est contraint dans ce schéma à une liste close de valeurs dont le traitement est garanti,
+          @rendition permet d'ajouter d’autres classes</a:documentation>
         <data type="anyURI"/>
       </attribute>
     </define>
@@ -3241,12 +3692,14 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       </choice>
     </define>
     <define name="rend.font">
-      <a:documentation>Styles de caractères, pour un segment de texte ou un bloc, valeurs reprises de html5 ou CSS</a:documentation>
+      <a:documentation>Styles de caractères, pour un segment de texte ou un bloc, valeurs reprises
+        de html5 ou CSS</a:documentation>
       <choice>
         <value>b</value>
         <a:documentation>gras “bold” &lt;html5:b></a:documentation>
         <value>bi</value>
-        <a:documentation>gras “bold” et italique (rare et déconseillé, souvent le signe qu’une balise sémantique est nécessaire, comme un titre)</a:documentation>
+        <a:documentation>gras “bold” et italique (rare et déconseillé, souvent le signe qu’une
+          balise sémantique est nécessaire, comme un titre)</a:documentation>
         <value>big</value>
         <a:documentation>taille de caractère relativement plus grande</a:documentation>
         <value>bold</value>
@@ -3260,7 +3713,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
         <value>letter-spacing</value>
         <a:documentation>espacé css{letter-spacing:2px}</a:documentation>
         <value>n</value>
-        <a:documentation>normal (annule toutes les mmises en formes héritées de niveau caractère)</a:documentation>
+        <a:documentation>normal (annule toutes les mmises en formes héritées de niveau
+          caractère)</a:documentation>
         <value>s</value>
         <a:documentation>Barré “strike” &lt;html5:s></a:documentation>
         <value>sc</value>
@@ -3311,7 +3765,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
       </choice>
     </define>
     <define name="rend.border">
-      <a:documentation>Valeurs normalisées pour indiquer l'encadrement d'une boîte (combinable), empruntées à CSS</a:documentation>
+      <a:documentation>Valeurs normalisées pour indiquer l'encadrement d'une boîte (combinable),
+        empruntées à CSS</a:documentation>
       <choice>
         <value>border</value>
         <a:documentation>encadré</a:documentation>
@@ -3358,14 +3813,18 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
     <define name="val-status">
       <choice>
         <value>inferior</value>
-        <a:documentation>Statut inférieur aux principaux protagonistes (valet, nourrice…)</a:documentation>
+        <a:documentation>Statut inférieur aux principaux protagonistes (valet,
+          nourrice…)</a:documentation>
         <value>exterior</value>
-        <a:documentation>Statut extérieur aux principaux protagonistes (notaire, médecin…)</a:documentation>
+        <a:documentation>Statut extérieur aux principaux protagonistes (notaire,
+          médecin…)</a:documentation>
         <value>superior</value>
-        <a:documentation>Statut supérieur aux principaux protagonistes (roi, dieu…)</a:documentation>
+        <a:documentation>Statut supérieur aux principaux protagonistes (roi,
+          dieu…)</a:documentation>
       </choice>
     </define>
   </div>
   <!-- appel du teiHeader, revoir URI : http://svn.code.sf.net/p/algone/code/teibook/teibookHeader.rng -->
-  <include h:href="./teinteHeader.rng" h:title="Schéma de l'entête de métadonnées Teibook" href="teinteHeader.rng"/>
+  <include h:href="./teinteHeader.rng" h:title="Schéma de l'entête de métadonnées Teibook"
+    href="teinteHeader.rng"/>
 </grammar>

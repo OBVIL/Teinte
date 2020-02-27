@@ -1129,12 +1129,63 @@
     <define name="sourceDesc">
       <element name="sourceDesc">
         <a:documentation>Description de la (des) source(s) numérisée(s)</a:documentation>
-        <oneOrMore>
-          <ref name="bibl.label"/>
-          <optional>
-            <ref name="biblFull"/>
-          </optional>
-        </oneOrMore>
+        <choice>
+          <oneOrMore>
+            <ref name="bibl.label"/>
+            <optional>
+              <ref name="biblFull"/>
+            </optional>
+          </oneOrMore>
+          <ref name="biblStruct"/>
+        </choice>
+      </element>
+    </define>
+    <define name="biblStruct">
+      <element name="biblStruct">
+        <attribute>
+          <name ns="http://www.w3.org/XML/1998/namespace">id</name>
+          <data type="NCName"/>
+        </attribute>
+        <element name="analytic">
+          <ref name="title.biblstruc"/>
+        </element>
+        <element name="monogr">
+          <ref name="title.biblstruc"/>
+          <element name="imprint">
+            <element name="catRef">
+              <attribute name="target"/>
+            </element>
+            <element name="pubPlace">
+              <data type="NCName"/>
+            </element>
+            <oneOrMore>
+              <element name="biblScope">
+                <optional>
+                  <attribute name="from">
+                    <data type="integer"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="to">
+                    <data type="integer"/>
+                  </attribute>
+                </optional>
+                <attribute name="unit">
+                  <data type="NCName"/>
+                </attribute>
+                <data type="NMTOKEN"/>
+              </element>
+            </oneOrMore>
+          </element>
+        </element>
+      </element>
+    </define>
+    <define name="title.biblstruc">
+      <element name="title">
+        <attribute name="level">
+          <data type="NCName"/>
+        </attribute>
+        <text/>
       </element>
     </define>
     <define name="bibl.label">
