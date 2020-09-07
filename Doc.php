@@ -143,8 +143,23 @@ class Teinte_Doc
     }
     // title
     $nl = $this->_xpath->query("/*/tei:teiHeader//tei:title");
-    if ($nl->length) $meta['title'] = $nl->item(0)->textContent;
-    else $meta['title'] = null;
+    if ($nl->length) {
+        // Hack pour Paulhan afin d'afficher la correspondance dans le Titre
+        // avec le sous-titre
+        if (strpos($nl->item(0)->textContent, 'Paulhan') !== false) {
+            $nl_sub = $this->_xpath->query("/*/tei:teiHeader//tei:title[@type='sub']");
+            if ($nl_sub->length) {
+                $meta['title'] = $nl->item(0)->textContent . '. ' . $nl_sub->item(0)->textContent;
+            } else {
+                $meta['title'] = $nl->item(0)->textContent;
+            }
+        } else {
+            $meta['title'] = $nl->item(0)->textContent;
+        }
+    // Le xpath n'existe pas
+    } else {
+        $meta['title'] = null;
+    }
     // publisher
     $nl = $this->_xpath->query("/*/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:publisher");
     if ($nl->length) $meta['publisher'] = $nl->item(0)->textContent;
