@@ -1130,6 +1130,7 @@
       <element name="sourceDesc">
         <a:documentation>Description de la (des) source(s) numérisée(s)</a:documentation>
         <choice>
+          <ref name="p"/>
           <oneOrMore>
             <ref name="bibl.label"/>
             <optional>
