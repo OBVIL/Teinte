@@ -3743,6 +3743,12 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
         <a:documentation>souligné “underline” &lt;html5:u></a:documentation>
         <value>underline</value>
         <a:documentation>souligné css{text-decoration:unbderline}</a:documentation>
+
+        <!-- valeurs présentes dans le projet Apollinaire mais pas de documentation sur l'utilisation prévue -->
+        <value>question</value>
+        <a:documentation>Non utilisé mais présent dans Apollinaire</a:documentation>
+        <value>questionc</value>
+        <a:documentation>Non utilisé mais présent dans Apollinaire</a:documentation>
       </choice>
     </define>
     <define name="rend.align">
