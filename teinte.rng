@@ -1334,6 +1334,9 @@
           </oneOrMore>
           <oneOrMore>
             <choice>
+              <ref name="salute"/>
+              <ref name="signed"/>
+              <ref name="figure"/>
               <ref name="ab"/>
               <ref name="bibl"/>
               <ref name="cb"/>
