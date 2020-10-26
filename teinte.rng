@@ -929,6 +929,7 @@
           <choice>
             <text/>
             <ref name="lb"/>
+            <ref name="space"/>
           </choice>
         </oneOrMore>
       </element>
