@@ -3645,6 +3645,8 @@ Zero width non joiner: x‌x‌x‌x‌x‌x‌x‌x‌x‌x
                 <a:documentation>Bloc préformaté, conserver les espaces et sauts de ligne, police à
                   chasse fixe. Pour des exemples de codes, préférer @lt;eg>. @rend='pre' peut servir
                   à rendre des formules mathématiques.</a:documentation>
+                <value>salute</value>
+                <value>signed</value>
               </choice>
             </oneOrMore>
           </list>
